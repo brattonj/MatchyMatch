@@ -2,7 +2,7 @@ import { useState, useCallback } from "react";
 
 // ── Constants ────────────────────────────────────────────────────────────────
 
-const CARD_PAIRS = [
+export const CARD_PAIRS = [
   { emoji: "🍎", label: "Apple" },
   { emoji: "🍌", label: "Banana" },
   { emoji: "🍊", label: "Orange" },

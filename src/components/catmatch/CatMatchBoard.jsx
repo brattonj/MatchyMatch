@@ -3,7 +3,7 @@ import Confetti from '../Confetti'
 
 // ── Constants ────────────────────────────────────────────────────────────────
 
-const CAT_PAIRS = [
+export const CAT_PAIRS = [
   { emoji: '🐈', label: 'Cat Face' },
   { emoji: '😺', label: 'Smiling Cat' },
   { emoji: '😸', label: 'Cat Grin' },
