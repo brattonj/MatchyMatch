@@ -81,7 +81,7 @@ export function useChessGame() {
       }
 
       // Update move history
-      setMoveHistory((prev) => [...prev, { ...fromSquare, ...toSquare, notation }])
+      setMoveHistory((prev) => [...prev, { from: fromSquare, to: toSquare, notation }])
 
       // Switch turn
       const newTurn = turn === 'white' ? 'black' : 'white'
@@ -101,23 +101,13 @@ export function useChessGame() {
     let newCapturedPieces = { white: [], black: [] }
     let newTurn = 'white'
 
-    for (let i = 0; i < moveHistory.length - 1; i++) {
-      // This is a simplified undo - in production, you'd store full move data
-      // For now, we'll just remove the last move from history
-    }
-
-    // Simplified: just remove last move
+    // Remove the last move, then replay everything before it from scratch.
     const newHistory = moveHistory.slice(0, -1)
     setMoveHistory(newHistory)
 
-    // Recalculate board state
-    newBoard = initializeBoard()
-    newCapturedPieces = { white: [], black: [] }
-    newTurn = 'white'
-
     for (const move of newHistory) {
-      const fromSquare = { row: move.row, col: move.col }
-      const toSquare = { row: move.row, col: move.col }
+      const fromSquare = move.from
+      const toSquare = move.to
       const { newBoard: updatedBoard, capturedPiece } = makeMove(
         newBoard,
         fromSquare,

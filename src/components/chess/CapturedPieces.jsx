@@ -21,8 +21,8 @@ export default function CapturedPieces({ capturedPieces }) {
     return pieces.reduce((sum, piece) => sum + PIECE_VALUES[piece.type], 0)
   }
 
-  const whiteMaterial = calculateMaterial(capturedPieces.black)
-  const blackMaterial = calculateMaterial(capturedPieces.white)
+  const whiteMaterial = calculateMaterial(capturedPieces.white)
+  const blackMaterial = calculateMaterial(capturedPieces.black)
 
   const renderPieces = (pieces) => {
     return pieces.map((piece, idx) => (
@@ -37,7 +37,7 @@ export default function CapturedPieces({ capturedPieces }) {
       <div className="captured-section">
         <div className="captured-label">White captured</div>
         <div className="captured-list">
-          {renderPieces(capturedPieces.black, 'white')}
+          {renderPieces(capturedPieces.white, 'white')}
         </div>
         {whiteMaterial > 0 && (
           <div className="material-count">+{whiteMaterial}</div>
@@ -47,7 +47,7 @@ export default function CapturedPieces({ capturedPieces }) {
       <div className="captured-section">
         <div className="captured-label">Black captured</div>
         <div className="captured-list">
-          {renderPieces(capturedPieces.white, 'black')}
+          {renderPieces(capturedPieces.black, 'black')}
         </div>
         {blackMaterial > 0 && (
           <div className="material-count">+{blackMaterial}</div>
