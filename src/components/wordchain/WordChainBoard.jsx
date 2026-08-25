@@ -161,7 +161,10 @@ function Game({ puzzle, onNewGame }) {
   };
 
   const handleSubmit = () => {
-    if (gameState !== "playing") return;
+    // `gameState` only flips to "won" after a short delay (for the win
+    // animation), so also check the chain directly — otherwise a player
+    // can submit another word in that window and inflate the step count.
+    if (gameState !== "playing" || chain[chain.length - 1] === end) return;
     const word = current.join("");
 
     if (changedIndices.length === 0) {
@@ -277,7 +280,7 @@ function Game({ puzzle, onNewGame }) {
               inputRef={(el) => (inputRefs.current[i] = el)}
               onChange={(e) => handleLetterChange(i, e.target.value)}
               onKeyDown={(e) => handleKeyDown(i, e)}
-              disabled={false}
+              disabled={chain[chain.length - 1] === end}
             />
           ))}
         </div>
