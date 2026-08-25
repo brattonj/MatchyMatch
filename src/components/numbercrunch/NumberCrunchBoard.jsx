@@ -236,7 +236,7 @@ function Game({ puzzle, onNewGame }) {
     newSlots.push({ value: result, originalIndex: -1, used: false, isResult: true });
 
     setSlots(newSlots);
-    setSteps((prev) => [...prev, { expr, result }]);
+    setSteps((prev) => [...prev, { expr, result, usedIndices: [firstPick, idx] }]);
     setFirstPick(null);
     setSelectedOp(null);
 
@@ -247,21 +247,16 @@ function Game({ puzzle, onNewGame }) {
 
   const handleUndo = () => {
     if (steps.length === 0) return;
-    // Remove the last result tile and un-use the two source tiles
-    // Strategy: remove the last isResult tile, then un-use the last two used tiles
-    const lastResultIdx = [...slots].map((s, i) => ({ ...s, i })).reverse().find((s) => s.isResult && !s.used)?.i;
-    if (lastResultIdx === undefined) return;
+    const lastStep = steps[steps.length - 1];
 
-    const withoutResult = slots.filter((_, i) => i !== lastResultIdx);
-    // un-use the last two used tiles
-    let undoCount = 0;
-    const restored = [...withoutResult].reverse().map((s) => {
-      if (s.used && undoCount < 2) {
-        undoCount++;
-        return { ...s, used: false };
-      }
-      return s;
-    }).reverse();
+    // The last step always appended exactly one result tile to the end of
+    // `slots`, so it's safe to drop the final slot and un-use precisely
+    // the two operand indices that step recorded.
+    const restored = slots
+      .slice(0, -1)
+      .map((s, i) =>
+        lastStep.usedIndices.includes(i) ? { ...s, used: false } : s
+      );
 
     setSlots(restored);
     setSteps((prev) => prev.slice(0, -1));
