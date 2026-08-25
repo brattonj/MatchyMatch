@@ -5,8 +5,8 @@ export const DOG_PAIRS = [
   { emoji: "🐩", breed: "Poodle" },
   { emoji: "🐕‍🦺", breed: "Service Dog" },
   { emoji: "🦮", breed: "Guide Dog" },
-  { emoji: "🐕", breed: "Labrador" },
-  { emoji: "🐩", breed: "Dachshund" },
-  { emoji: "🐕", breed: "Husky" },
-  { emoji: "🐕", breed: "Corgi" },
+  { emoji: "🐶", breed: "Labrador" },
+  { emoji: "🌭", breed: "Dachshund" },
+  { emoji: "🐺", breed: "Husky" },
+  { emoji: "🦊", breed: "Corgi" },
 ]
