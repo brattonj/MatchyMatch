@@ -21,6 +21,7 @@ export default function GeoffsGeometryBoard() {
   const [message, setMessage] = useState('')
   const [showConfetti, setShowConfetti] = useState(false)
   const [timeLeft, setTimeLeft] = useState(30)
+  const [answered, setAnswered] = useState(false)
 
   const pickNewShape = useCallback(() => {
     const randomShape = SHAPES[Math.floor(Math.random() * SHAPES.length)]
@@ -34,11 +35,13 @@ export default function GeoffsGeometryBoard() {
     setTimeLeft(30)
     setMessage('')
     setShowConfetti(false)
+    setAnswered(false)
     pickNewShape()
   }, [pickNewShape])
 
   const handleShapeClick = (shape) => {
-    if (gameState !== 'playing' || !currentShape) return
+    if (gameState !== 'playing' || !currentShape || answered) return
+    setAnswered(true)
 
     if (shape.name === currentShape.name) {
       setScore((prev) => prev + 1)
@@ -53,6 +56,7 @@ export default function GeoffsGeometryBoard() {
 
     setTimeout(() => {
       setMessage('')
+      setAnswered(false)
       pickNewShape()
     }, 800)
   }
@@ -223,7 +227,8 @@ export default function GeoffsGeometryBoard() {
             <button
               key={shape.name}
               onClick={() => handleShapeClick(shape)}
-              className="aspect-square rounded-lg text-4xl transition-transform hover:scale-110 active:scale-95"
+              disabled={answered}
+              className="aspect-square rounded-lg text-4xl transition-transform hover:scale-110 active:scale-95 disabled:opacity-50"
               style={{ backgroundColor: 'var(--fill-secondary)' }}
             >
               {shape.emoji}

@@ -229,11 +229,15 @@ export default function GregsEggBoard() {
 
   const elapsedRef = useRef(0)
   const popupIdRef = useRef(0)
-  const eggTimersRef = useRef({}) // cellIndex → timeout id for auto-hatch
+  const eggTimersRef = useRef({}) // cellIndex → array of pending timeout ids for that cell's hatch chain
 
-  // Clear all pending egg timers
+  const addEggTimer = (idx, id) => {
+    eggTimersRef.current[idx] = [...(eggTimersRef.current[idx] || []), id]
+  }
+
+  // Clear all pending egg timers (every stage of every cell's hatch chain)
   const clearEggTimers = () => {
-    Object.values(eggTimersRef.current).forEach(clearTimeout)
+    Object.values(eggTimersRef.current).forEach((ids) => ids.forEach(clearTimeout))
     eggTimersRef.current = {}
   }
 
@@ -281,18 +285,19 @@ export default function GregsEggBoard() {
             const cracked = cur.map((c, i) =>
               i === idx ? { ...c, state: EGG_STATES.CRACKING } : c
             )
-            // After crack animation, fully hatch
-            setTimeout(() => {
-              setCells((c2) =>
-                c2.map((c, i) =>
-                  i === idx && c.state === EGG_STATES.CRACKING
-                    ? { ...c, state: EGG_STATES.HATCHED }
-                    : c
+            // After crack animation, fully hatch — unless the player taps
+            // it during the cracking window for the timing bonus, in which
+            // case this must not also count as a miss.
+            const crackId = setTimeout(() => {
+              setCells((c2) => {
+                if (c2[idx].state !== EGG_STATES.CRACKING) return c2
+                setMisses((m) => m + 1)
+                return c2.map((c, i) =>
+                  i === idx ? { ...c, state: EGG_STATES.HATCHED } : c
                 )
-              )
-              setMisses((m) => m + 1)
+              })
               // Clear the nest shortly after
-              setTimeout(() => {
+              const emptyId = setTimeout(() => {
                 setCells((c3) =>
                   c3.map((c, i) =>
                     i === idx && c.state === EGG_STATES.HATCHED
@@ -301,13 +306,14 @@ export default function GregsEggBoard() {
                   )
                 )
               }, 700)
+              addEggTimer(idx, emptyId)
             }, 250)
+            addEggTimer(idx, crackId)
             return cracked
           })
-          delete eggTimersRef.current[idx]
         }, EGG_LIFESPAN)
 
-        eggTimersRef.current[idx] = hatchId
+        addEggTimer(idx, hatchId)
         return next
       })
 
@@ -329,8 +335,9 @@ export default function GregsEggBoard() {
       setCells((prev) => {
         if (prev[idx].state !== EGG_STATES.EGG && prev[idx].state !== EGG_STATES.CRACKING)
           return prev
-        // Cancel the auto-hatch timer
-        clearTimeout(eggTimersRef.current[idx])
+        // Cancel every pending stage of this cell's hatch chain
+        const pendingTimers = eggTimersRef.current[idx] || []
+        pendingTimers.forEach(clearTimeout)
         delete eggTimersRef.current[idx]
 
         const next = prev.map((c, i) =>

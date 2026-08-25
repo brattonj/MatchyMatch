@@ -20,11 +20,17 @@ export default function NathanielNinjaBoard() {
   // Initialize options when current number changes
   useEffect(() => {
     const correct = currentNumber
-    const wrong1 = randomNumber(1, 100)
-    const wrong2 = randomNumber(1, 100)
-    const wrong3 = randomNumber(1, 100)
+    const used = new Set([correct])
+    const wrongs = []
+    while (wrongs.length < 3) {
+      const candidate = randomNumber(1, 100)
+      if (!used.has(candidate)) {
+        used.add(candidate)
+        wrongs.push(candidate)
+      }
+    }
 
-    let opts = [correct, wrong1, wrong2, wrong3]
+    let opts = [correct, ...wrongs]
     // Shuffle
     opts = opts.sort(() => Math.random() - 0.5)
     const id = setTimeout(() => setOptions(opts), 0)
