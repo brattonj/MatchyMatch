@@ -39,6 +39,8 @@ import MartiniMatchBoard from './components/martinimatch/MartiniMatchBoard'
 import ManjualBoard from './components/manjual/ManjualBoard'
 import LatchamBoard from './components/latcham/LatchamBoard'
 import GeoffsGeometryBoard from './components/geoffsgeometry/GeoffsGeometryBoard'
+import GreatWallBoard from './components/greatwall/GreatWallBoard'
+import SamIAmBoard from './components/samiam/SamIAmBoard'
 import { puzzles } from './data/puzzles'
 
 const envIndex = parseInt(import.meta.env.VITE_PUZZLE_INDEX, 10)
@@ -152,6 +154,10 @@ function App() {
           <LatchamBoard key={`latcham-${gameKey}`} />
         ) : activeGame === 'geoffsgeometry' ? (
           <GeoffsGeometryBoard key={`geoffsgeometry-${gameKey}`} />
+        ) : activeGame === 'greatwall' ? (
+          <GreatWallBoard key={`greatwall-${gameKey}`} />
+        ) : activeGame === 'samiam' ? (
+          <SamIAmBoard key={`samiam-${gameKey}`} />
         ) : (
           <SudokuBoard key={`sudoku-${gameKey}`} />
         )}

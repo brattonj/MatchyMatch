@@ -229,6 +229,20 @@ const GAMES = [
     builder: 'Geoff',
     isNew: true,
   },
+  {
+    id: 'greatwall',
+    name: 'The Great Wall',
+    description: 'Break down the wall, one brick at a time!',
+    tag: 'Arcade',
+    isNew: true,
+  },
+  {
+    id: 'samiam',
+    name: 'Sam I Am',
+    description: 'Guess the secret word from Dr. Seuss-style clues!',
+    tag: 'Word',
+    isNew: true,
+  },
 ]
 
 // Two-color gradients cycled across the grid, adapted from the Arcade

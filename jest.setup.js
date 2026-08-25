@@ -31,3 +31,13 @@ HTMLCanvasElement.prototype.getContext = () =>
         prop in target ? target[prop] : () => new Proxy({}, { get: () => () => {} }),
     }
   );
+
+// jsdom does no layout, so every element measures 0 — ResizeObserver just
+// needs to exist for components that use it to size a canvas.
+window.ResizeObserver =
+  window.ResizeObserver ||
+  class ResizeObserver {
+    observe() {}
+    unobserve() {}
+    disconnect() {}
+  };

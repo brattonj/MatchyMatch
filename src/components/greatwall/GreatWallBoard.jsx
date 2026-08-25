@@ -201,17 +201,58 @@ export default function GreatWallBoard() {
     }
   }, [gameState, lives])
 
+  // Canvas sizing + the initial game setup. This must run only once on
+  // mount — it used to also depend on `gameState`, so every state
+  // transition (e.g. 'ready' -> 'playing' on click) re-ran it and called
+  // initGame() again, which unconditionally resets gameState back to
+  // 'ready'. That made the game unstartable: clicking to play silently
+  // reset it every time.
   useEffect(() => {
     const canvas = canvasRef.current
     if (!canvas) return
 
-    // Set canvas size
     const container = canvas.parentElement
-    canvas.width = Math.min(600, container.clientWidth)
-    canvas.height = 500
 
-    initGame()
-    draw()
+    const setupCanvas = (width) => {
+      canvas.width = Math.min(600, width)
+      canvas.height = 500
+      initGame()
+      draw()
+    }
+
+    // Right after this view mounts (e.g. swapping in from the game picker),
+    // the container can still measure 0 wide for a frame. Measuring once
+    // and locking that in would leave the canvas permanently invisible, so
+    // wait for a real measurement instead.
+    let resizeObserver = null
+    if (container.clientWidth > 0) {
+      setupCanvas(container.clientWidth)
+    } else if (typeof ResizeObserver !== 'undefined') {
+      resizeObserver = new ResizeObserver((entries) => {
+        const width = entries[0]?.contentRect.width
+        if (width > 0) {
+          resizeObserver.disconnect()
+          setupCanvas(width)
+        }
+      })
+      resizeObserver.observe(container)
+    }
+
+    return () => {
+      resizeObserver?.disconnect()
+      if (gameLoopRef.current) {
+        cancelAnimationFrame(gameLoopRef.current)
+      }
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
+
+  // Input listeners are re-bound whenever gameState changes, so handleClick
+  // always sees the current value — but, unlike the effect above, this
+  // must never re-run initGame().
+  useEffect(() => {
+    const canvas = canvasRef.current
+    if (!canvas) return
 
     const handleMouseMove = (e) => {
       const rect = canvas.getBoundingClientRect()
@@ -236,11 +277,8 @@ export default function GreatWallBoard() {
     return () => {
       canvas.removeEventListener('mousemove', handleMouseMove)
       canvas.removeEventListener('click', handleClick)
-      if (gameLoopRef.current) {
-        cancelAnimationFrame(gameLoopRef.current)
-      }
     }
-  }, [draw, gameState, initGame, startGame])
+  }, [gameState, initGame, startGame])
 
   useEffect(() => {
     if (gameState !== 'playing') {
