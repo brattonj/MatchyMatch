@@ -21,11 +21,18 @@ export default function RochellesSpinnerBoard() {
     setResult(null)
     setMessage('')
 
-    // Generate random rotation
-    const spins = 5 + Math.random() * 5 // 5-10 full rotations
+    // Generate random rotation. `spins` must be a whole number of turns —
+    // a fractional value would itself shift the final resting angle away
+    // from the intended segment.
+    const spins = 5 + Math.floor(Math.random() * 5) // 5-9 full rotations
     const randomSegment = Math.floor(Math.random() * segments.length)
-    const segmentAngle = (360 / segments.length) * randomSegment
-    const finalRotation = spins * 360 + segmentAngle
+    // The pointer is fixed at the top (0deg). To land segment i's centre
+    // under it after a clockwise rotation, rotate by 360 minus that centre
+    // angle (rotating the wheel clockwise moves each wedge's angle forward,
+    // so the wedge that ends up at the top is the one at -rotation).
+    const segmentSize = 360 / segments.length
+    const segmentCenterAngle = segmentSize * randomSegment + segmentSize / 2
+    const finalRotation = spins * 360 - segmentCenterAngle
 
     setRotation(finalRotation)
 

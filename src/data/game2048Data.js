@@ -107,9 +107,9 @@ export function applyMove(grid, direction) {
     // Rotate 180°
     working = rotateCW(rotateCW(working));
   } else if (direction === "up") {
-    working = rotateCW(working);
-  } else if (direction === "down") {
     working = rotateCCW(working);
+  } else if (direction === "down") {
+    working = rotateCW(working);
   }
 
   let totalScore = 0;
@@ -129,9 +129,9 @@ export function applyMove(grid, direction) {
   if (direction === "right") {
     result = rotateCW(rotateCW(result));
   } else if (direction === "up") {
-    result = rotateCCW(result);
-  } else if (direction === "down") {
     result = rotateCW(result);
+  } else if (direction === "down") {
+    result = rotateCCW(result);
   }
 
   const moved = result.some((v, i) => v !== grid[i]);
