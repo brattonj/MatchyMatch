@@ -12,3 +12,22 @@ window.matchMedia = window.matchMedia || function matchMedia(query) {
     dispatchEvent: () => false,
   };
 };
+
+// jsdom has no rAF/canvas rendering; games that draw to a <canvas> (Snake,
+// Great Wall) or animate via requestAnimationFrame (Nick of T-Time) only
+// need these to exist, not to actually paint anything.
+window.requestAnimationFrame =
+  window.requestAnimationFrame || ((cb) => setTimeout(() => cb(Date.now()), 0));
+window.cancelAnimationFrame =
+  window.cancelAnimationFrame || ((id) => clearTimeout(id));
+
+// jsdom's real getContext exists but only logs "not implemented" and
+// returns undefined, so it must be overridden unconditionally.
+HTMLCanvasElement.prototype.getContext = () =>
+  new Proxy(
+    {},
+    {
+      get: (target, prop) =>
+        prop in target ? target[prop] : () => new Proxy({}, { get: () => () => {} }),
+    }
+  );

@@ -53,7 +53,7 @@ export default function MartiniMatchBoard() {
   }, [])
 
   const handleCardClick = (cardId) => {
-    if (flipped.has(cardId) || matched.has(cardId) || gameWon) return
+    if (flipped.has(cardId) || matched.has(cardId) || gameWon || flipped.size >= 2) return
 
     const newFlipped = new Set(flipped)
     newFlipped.add(cardId)

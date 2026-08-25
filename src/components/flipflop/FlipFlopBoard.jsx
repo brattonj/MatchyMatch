@@ -54,7 +54,6 @@ function Card({ card, index, isFlipped, isMatched, onClick }) {
         alignItems: "center",
         justifyContent: "center",
         transition: "all 0.3s cubic-bezier(0.34,1.56,0.64,1)",
-        transform: isFlipped ? "rotateY(0deg)" : "rotateY(90deg)",
         perspective: "1000px",
         boxShadow: isMatched
           ? "inset 0 2px 8px rgba(52,199,89,0.2)"
@@ -62,7 +61,15 @@ function Card({ card, index, isFlipped, isMatched, onClick }) {
         opacity: isMatched ? 0.6 : 1,
       }}
     >
-      {isFlipped || isMatched ? card.emoji : "?"}
+      <span
+        style={{
+          display: "inline-block",
+          transition: "transform 0.3s cubic-bezier(0.34,1.56,0.64,1)",
+          transform: isFlipped ? "rotateY(0deg)" : "rotateY(90deg)",
+        }}
+      >
+        {isFlipped || isMatched ? card.emoji : "?"}
+      </span>
     </button>
   );
 }
@@ -127,6 +134,7 @@ function Game({ onNewGame }) {
   const handleCardClick = useCallback((index) => {
     setState((prev) => {
       if (prev.gameState !== "playing") return prev;
+      if (prev.flipped.size >= 2) return prev;
       if (prev.flipped.has(index) || prev.matched.has(index)) return prev;
 
       const newFlipped = new Set(prev.flipped);
