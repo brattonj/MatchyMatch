@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback, useMemo } from 'react'
+import { useState, useEffect, useCallback, useMemo, useRef } from 'react'
 import Toast from '../Toast'
 import Confetti from '../Confetti'
 
@@ -30,13 +30,26 @@ export default function ManjualBoard() {
   const wordLetters = useMemo(() => new Set(currentWord.word), [currentWord.word])
   const isWordComplete = [...wordLetters].every((l) => guessedLetters.has(l))
 
+  // Mirrors `gameOver` for the nested timeouts below — the alphabet stays
+  // clickable during the word-complete delay, so a wrong-guesses loss can
+  // happen while an "advance to next word" chain is still pending. Reading
+  // this ref (instead of the closed-over `gameOver`) keeps that chain from
+  // overwriting a loss that occurred after it was scheduled.
+  const gameOverRef = useRef(gameOver)
+  useEffect(() => {
+    gameOverRef.current = gameOver
+  }, [gameOver])
+
   useEffect(() => {
     if (isWordComplete) {
+      let advanceId
       const id = setTimeout(() => {
+        if (gameOverRef.current) return
         setScore((prevScore) => prevScore + 1)
         setMessage('🎉 Correct!')
         setShowConfetti(true)
-        setTimeout(() => {
+        advanceId = setTimeout(() => {
+          if (gameOverRef.current) return
           if (currentWordIndex < MANJU_WORDS.length - 1) {
             setCurrentWordIndex(currentWordIndex + 1)
             setGuessedLetters(new Set())
@@ -48,7 +61,10 @@ export default function ManjualBoard() {
           }
         }, 1500)
       }, 0)
-      return () => clearTimeout(id)
+      return () => {
+        clearTimeout(id)
+        clearTimeout(advanceId)
+      }
     }
   }, [isWordComplete, currentWordIndex])
 
@@ -63,7 +79,7 @@ export default function ManjualBoard() {
   }, [wrongGuesses, currentWord.word])
 
   const handleGuess = useCallback((letter) => {
-    if (gameOver || guessedLetters.has(letter)) return
+    if (gameOver || isWordComplete || guessedLetters.has(letter)) return
 
     const newGuessed = new Set(guessedLetters)
     newGuessed.add(letter)
@@ -72,7 +88,7 @@ export default function ManjualBoard() {
     if (!wordLetters.has(letter)) {
       setWrongGuesses((prevWrong) => prevWrong + 1)
     }
-  }, [gameOver, guessedLetters, wordLetters])
+  }, [gameOver, isWordComplete, guessedLetters, wordLetters])
 
   const handleNewGame = () => {
     setCurrentWordIndex(0)
@@ -157,7 +173,7 @@ export default function ManjualBoard() {
               <button
                 key={letter}
                 onClick={() => handleGuess(letter)}
-                disabled={isGuessed || gameOver}
+                disabled={isGuessed || gameOver || isWordComplete}
                 className="py-2 rounded font-semibold text-sm transition-all disabled:opacity-50"
                 style={{
                   backgroundColor: isGuessed
