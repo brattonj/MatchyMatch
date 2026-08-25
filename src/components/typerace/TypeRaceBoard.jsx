@@ -13,13 +13,13 @@ function calcWPM(charCount, elapsedSeconds) {
   return Math.round(words / minutes);
 }
 
-function calcAccuracy(typed, target) {
-  if (typed.length === 0) return 100;
-  let correct = 0;
-  for (let i = 0; i < typed.length; i++) {
-    if (typed[i] === target[i]) correct++;
-  }
-  return Math.round((correct / typed.length) * 100);
+// Accuracy is cumulative — every character ever typed forward counts,
+// including ones later corrected with backspace. Comparing only the final
+// string against the target (as this used to) is meaningless: completion
+// requires typed === target, so that comparison is always 100%.
+function calcAccuracy(keystrokes, mistakes) {
+  if (keystrokes === 0) return 100;
+  return Math.round(((keystrokes - mistakes) / keystrokes) * 100);
 }
 
 // ── Category pill ─────────────────────────────────────────────────
@@ -248,6 +248,10 @@ function Game({ phrase, onPlayAgain, onNewPhrase }) {
   const [wpm, setWpm]             = useState(0);
   const [toast, setToast]         = useState(null);
   const [shaking, setShaking]     = useState(false);
+  // Cumulative counts for accuracy — every forward keystroke counts, even
+  // if it's later corrected with backspace.
+  const [keystrokes, setKeystrokes] = useState(0);
+  const [mistakes, setMistakes]     = useState(0);
 
   const inputRef  = useRef(null);
   const timerRef  = useRef(null);
@@ -286,6 +290,23 @@ function Game({ phrase, onPlayAgain, onNewPhrase }) {
 
     setTyped(value);
 
+    // Every newly-typed forward character counts toward accuracy, whether
+    // or not it's later corrected with backspace. Deletions don't undo
+    // that count.
+    let updatedKeystrokes = keystrokes;
+    let updatedMistakes = mistakes;
+    if (value.length > typed.length) {
+      const added = value.slice(typed.length);
+      let newMistakes = 0;
+      for (let i = 0; i < added.length; i++) {
+        if (added[i] !== target[typed.length + i]) newMistakes++;
+      }
+      updatedKeystrokes = keystrokes + added.length;
+      updatedMistakes = mistakes + newMistakes;
+      setKeystrokes(updatedKeystrokes);
+      setMistakes(updatedMistakes);
+    }
+
     // Check for errors on latest char
     const lastIdx = value.length - 1;
     if (lastIdx >= 0 && value[lastIdx] !== target[lastIdx]) {
@@ -298,7 +319,7 @@ function Game({ phrase, onPlayAgain, onNewPhrase }) {
       clearInterval(timerRef.current);
       const finalElapsed = Math.max(1, Math.floor((Date.now() - startTime.current) / 1000));
       const finalWpm = calcWPM(target.length, finalElapsed);
-      const finalAcc = calcAccuracy(value, target);
+      const finalAcc = calcAccuracy(updatedKeystrokes, updatedMistakes);
       setElapsed(finalElapsed);
       setWpm(finalWpm);
       setGameState("done");
@@ -306,7 +327,7 @@ function Game({ phrase, onPlayAgain, onNewPhrase }) {
     }
   };
 
-  const accuracy = calcAccuracy(typed, target);
+  const accuracy = calcAccuracy(keystrokes, mistakes);
   const progress = Math.round((typed.length / target.length) * 100);
 
   // ── Done screen ──────────────────────────────────────────────────
@@ -316,7 +337,7 @@ function Game({ phrase, onPlayAgain, onNewPhrase }) {
         {toast && <Toast message={toast} onDone={() => setToast(null)} />}
         <ResultScreen
           wpm={wpm}
-          accuracy={calcAccuracy(typed, target)}
+          accuracy={accuracy}
           elapsed={elapsed}
           phrase={phrase}
           onPlayAgain={onPlayAgain}
