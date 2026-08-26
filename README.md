@@ -15,6 +15,12 @@ The React Compiler is not enabled on this template because of its impact on dev 
 
 If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
 
+## 💭 Brian Eno Quote
+
+> "The idea is to make something that is so simple that it's almost invisible. Something that just works and doesn't get in the way."
+
+— Brian Eno
+
 ## 😄 A Little Joke
 
 Why did the matching game break up with the memory game?
