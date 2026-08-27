@@ -20,4 +20,11 @@ If you are developing a production application, we recommend using TypeScript wi
 Why did the matching game break up with the memory game?
 
 Because it kept finding someone **else** a perfect match! 🃏
+
+## 💫 Dolly Parton Wisdom
+
+> "If you want the rainbow, you gotta put up with the rain." - Dolly Parton
+
+> "There's no business like show business, but there's plenty of business in show business." - Dolly Parton
+
 forge scoping test
