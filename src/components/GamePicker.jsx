@@ -243,6 +243,12 @@ const GAMES = [
     tag: 'Word',
     isNew: true,
   },
+  {
+    id: 'checkers',
+    name: 'Checkers',
+    description: 'Play the classic board game of checkers',
+    tag: 'Strategy',
+  },
 ]
 
 // Two-color gradients cycled across the grid, adapted from the Arcade
