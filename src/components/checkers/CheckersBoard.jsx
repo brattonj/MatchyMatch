@@ -223,9 +223,12 @@ export default function CheckersBoard() {
         setMoveHistory([
           ...moveHistory,
           {
+            player: currentPlayer,
             from: selectedSquare,
             to: { row, col },
             isCapture: move.isCapture,
+            captureRow: move.captureRow,
+            captureCol: move.captureCol,
           },
         ])
 
@@ -281,9 +284,9 @@ export default function CheckersBoard() {
       newBoard[move.to.row][move.to.col] = piece
       newBoard[move.from.row][move.from.col] = null
 
-      if (move.isCapture) {
+      if (move.isCapture && move.captureRow !== undefined && move.captureCol !== undefined) {
         // Restore captured piece
-        const capturedPiece = currentPlayer === 'red' ? 'black' : 'red'
+        const capturedPiece = move.player === 'red' ? 'black' : 'red'
         newBoard[move.captureRow][move.captureCol] = capturedPiece
       }
     }
