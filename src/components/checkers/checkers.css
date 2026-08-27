@@ -1,0 +1,283 @@
+/* Checkers Game Styles */
+
+.checkers-container {
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.checkers-main {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.checkers-board-wrapper {
+  flex: 0 0 auto;
+}
+
+.checkers-board {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  gap: 0;
+  width: 400px;
+  height: 400px;
+  border: 3px solid #333;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  background: #333;
+}
+
+.checkers-square {
+  width: 50px;
+  height: 50px;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  transition: all 0.2s ease;
+}
+
+.checkers-square--light {
+  background: #f0d9b5;
+}
+
+.checkers-square--dark {
+  background: #b58863;
+}
+
+.checkers-square--selected {
+  box-shadow: inset 0 0 0 3px #4CAF50;
+}
+
+.checkers-square--valid-move {
+  box-shadow: inset 0 0 0 2px #2196F3;
+}
+
+.checkers-square__indicator {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #2196F3;
+  opacity: 0.7;
+}
+
+.checkers-piece {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  font-weight: bold;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  transition: transform 0.2s ease;
+  cursor: grab;
+  user-select: none;
+}
+
+.checkers-piece:active {
+  cursor: grabbing;
+}
+
+.checkers-piece--red {
+  background: linear-gradient(135deg, #ff6b6b 0%, #ee5a52 100%);
+  border: 2px solid #c92a2a;
+  color: #fff;
+}
+
+.checkers-piece--black {
+  background: linear-gradient(135deg, #2d3436 0%, #000 100%);
+  border: 2px solid #000;
+  color: #fff;
+}
+
+.checkers-piece--king {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3), inset 0 0 0 2px gold;
+}
+
+.checkers-piece__crown {
+  font-size: 18px;
+}
+
+.checkers-panel {
+  flex: 0 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  min-width: 250px;
+}
+
+.checkers-status {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.checkers-status__title {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.checkers-captured {
+  background: #f5f5f5;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.checkers-captured__section {
+  margin-bottom: 1rem;
+}
+
+.checkers-captured__section:last-child {
+  margin-bottom: 0;
+}
+
+.checkers-captured__title {
+  margin: 0 0 0.5rem 0;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.checkers-captured__pieces {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  min-height: 24px;
+  align-items: center;
+}
+
+.checkers-captured__count {
+  display: inline-block;
+  background: #e0e0e0;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.checkers-captured__count--king {
+  background: #ffd700;
+  color: #333;
+}
+
+.checkers-captured__empty {
+  color: #999;
+  font-size: 0.9rem;
+}
+
+.checkers-controls {
+  display: flex;
+  gap: 0.75rem;
+  flex-direction: column;
+}
+
+.checkers-btn {
+  padding: 0.75rem 1rem;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-align: center;
+}
+
+.checkers-btn--primary {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3);
+}
+
+.checkers-btn--primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+}
+
+.checkers-btn--primary:active {
+  transform: translateY(0);
+}
+
+.checkers-btn--secondary {
+  background: #e0e0e0;
+  color: #333;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.checkers-btn--secondary:hover:not(:disabled) {
+  background: #d0d0d0;
+  transform: translateY(-2px);
+}
+
+.checkers-btn--secondary:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .checkers-main {
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  .checkers-board {
+    width: 320px;
+    height: 320px;
+  }
+
+  .checkers-square {
+    width: 40px;
+    height: 40px;
+  }
+
+  .checkers-piece {
+    width: 32px;
+    height: 32px;
+    font-size: 16px;
+  }
+
+  .checkers-piece__crown {
+    font-size: 14px;
+  }
+
+  .checkers-panel {
+    min-width: 100%;
+    max-width: 320px;
+  }
+}
+
+@media (max-width: 480px) {
+  .checkers-board {
+    width: 280px;
+    height: 280px;
+  }
+
+  .checkers-square {
+    width: 35px;
+    height: 35px;
+  }
+
+  .checkers-piece {
+    width: 28px;
+    height: 28px;
+    font-size: 14px;
+  }
+
+  .checkers-status__title {
+    font-size: 1.2rem;
+  }
+}

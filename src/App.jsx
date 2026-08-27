@@ -33,6 +33,7 @@ import FlipCoinBoard from './components/flipcoin/FlipCoinBoard'
 import PuppyFetchBoard from './components/puppyfetch/PuppyFetchBoard'
 import CatMatchBoard from './components/catmatch/CatMatchBoard'
 import ChessBoard from './components/chess/ChessBoard'
+import CheckersBoard from './components/checkers/CheckersBoard'
 import KennyKenoBoard from './components/kennykeno/KennyKenoBoard'
 import RochellesSpinnerBoard from './components/rochellespinner/RochellesSpinnerBoard'
 import MartiniMatchBoard from './components/martinimatch/MartiniMatchBoard'
@@ -144,6 +145,8 @@ function App() {
           <KennyKenoBoard key={`kennykeno-${gameKey}`} />
         ) : activeGame === 'chess' ? (
           <ChessBoard key={`chess-${gameKey}`} />
+        ) : activeGame === 'checkers' ? (
+          <CheckersBoard key={`checkers-${gameKey}`} />
         ) : activeGame === 'rochellespinner' ? (
           <RochellesSpinnerBoard key={`rochellespinner-${gameKey}`} />
         ) : activeGame === 'martinimatch' ? (
