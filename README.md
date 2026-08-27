@@ -20,3 +20,9 @@ If you are developing a production application, we recommend using TypeScript wi
 Why did the matching game break up with the memory game?
 
 Because it kept finding someone **else** a perfect match! 🃏
+
+## 🤣 Dad Joke of the Day
+
+I'm reading a book about anti-gravity...
+
+It's impossible to put down! 📚
