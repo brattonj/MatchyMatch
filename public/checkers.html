@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkers Game</title>
+    <link rel="stylesheet" href="checkers.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Checkers</h1>
+            <p class="subtitle">A classic board game</p>
+        </header>
+
+        <div class="game-wrapper">
+            <div class="game-info">
+                <div class="player-info">
+                    <div class="player red-player">
+                        <span class="player-label">Red (Human)</span>
+                        <span class="piece-count" id="redCount">12</span>
+                    </div>
+                    <div class="player black-player">
+                        <span class="player-label">Black (Computer)</span>
+                        <span class="piece-count" id="blackCount">12</span>
+                    </div>
+                </div>
+                <div class="status-display">
+                    <p id="status">Red's turn</p>
+                    <p id="message"></p>
+                </div>
+            </div>
+
+            <div class="board-container">
+                <div id="board" class="board"></div>
+            </div>
+
+            <div class="controls">
+                <button id="resetBtn" class="btn btn-primary">New Game</button>
+                <button id="undoBtn" class="btn btn-secondary">Undo Move</button>
+                <p class="instructions">Click a piece to select it, then click a valid square to move.</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="checkers.js"></script>
+</body>
+</html>

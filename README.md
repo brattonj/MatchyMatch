@@ -15,6 +15,19 @@ The React Compiler is not enabled on this template because of its impact on dev 
 
 If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
 
+## Checkers
+
+A fully playable checkers game is available at `public/checkers.html`. The game features:
+
+- **Complete game logic**: Move validation, piece captures, and turn switching
+- **King promotion**: Pieces automatically become kings when reaching the opposite end
+- **Multi-capture support**: Chain multiple captures in a single turn
+- **Computer opponent**: The black pieces are controlled by an AI that prioritizes captures
+- **Game controls**: New Game and Undo Move buttons for easy gameplay
+- **Responsive design**: Works on desktop and mobile devices
+
+To play, open `public/checkers.html` in your browser. Red pieces are controlled by the human player, and black pieces are controlled by the computer.
+
 ## 😄 A Little Joke
 
 Why did the matching game break up with the memory game?
