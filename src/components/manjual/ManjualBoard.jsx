@@ -1,3 +1,24 @@
+/**
+ * @file ManjualBoard.jsx
+ * @description Manju-themed hangman word guessing game component.
+ * Players guess letters to reveal manju-related words with hints.
+ * Tracks score across 10 words with 6 wrong guesses allowed.
+ * Shows confetti on correct word guesses and win screen on completion.
+ * 
+ * @component
+ * @returns {JSX.Element} Manju word guessing game board
+ * 
+ * @state {number} currentWordIndex - Index of current word in MANJU_WORDS
+ * @state {Set} guessedLetters - Set of letters guessed so far
+ * @state {number} wrongGuesses - Number of incorrect guesses
+ * @state {number} score - Number of words correctly guessed
+ * @state {boolean} gameOver - Whether the game has ended
+ * @state {boolean} won - Whether the player won (all words guessed)
+ * @state {string} message - Status message
+ * @state {boolean} showConfetti - Whether to show confetti animation
+ * @ref {boolean} gameOverRef - Reference to gameOver for nested timeouts
+ */
+
 import { useState, useEffect, useCallback, useMemo, useRef } from 'react'
 import Toast from '../Toast'
 import Confetti from '../Confetti'

@@ -1,3 +1,27 @@
+/**
+ * @file LatchamBoard.jsx
+ * @description Latch-am If You Can - rapid clicking game component.
+ * Players click locks that appear on a grid before they disappear.
+ * Difficulty increases with score (faster spawns, shorter visibility).
+ * 30-second time limit with confetti on good performance.
+ * 
+ * @component
+ * @returns {JSX.Element} Lock clicking game board
+ * 
+ * @state {string} phase - Game phase ('idle', 'playing', 'gameover')
+ * @state {number} score - Number of locks latched
+ * @state {number} timeLeft - Seconds remaining
+ * @state {Set} activeCells - Set of currently active cell indices
+ * @state {string} message - Status message
+ * @state {boolean} showConfetti - Whether to show confetti
+ * @state {number|null} missedFlash - Cell index that just expired (for visual feedback)
+ * @ref {number} scoreRef - Reference to current score for callbacks
+ * @ref {number} spawnTimerRef - Timeout ID for next spawn
+ * @ref {Function} spawnCellRef - Reference to spawnCell function
+ * @ref {number} countdownRef - Interval ID for countdown
+ * @ref {Object} cellTimersRef - Map of cell index to timeout IDs
+ */
+
 import { useState, useEffect, useCallback, useRef } from 'react'
 import Toast from '../Toast'
 import Confetti from '../Confetti'

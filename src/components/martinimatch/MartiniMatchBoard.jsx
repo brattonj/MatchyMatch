@@ -1,3 +1,21 @@
+/**
+ * @file MartiniMatchBoard.jsx
+ * @description Cocktail matching memory game component.
+ * Players match cocktail names with their ingredients.
+ * Tracks moves and displays win screen with confetti when all pairs are matched.
+ * 
+ * @component
+ * @returns {JSX.Element} Cocktail matching game board
+ * 
+ * @state {Array<Object>} cards - Array of card objects with id, type, cocktailId, content, emoji
+ * @state {Set} flipped - Set of currently flipped card IDs
+ * @state {Set} matched - Set of matched card IDs
+ * @state {number} moves - Number of moves made
+ * @state {string} message - Status message
+ * @state {boolean} showConfetti - Whether to show confetti animation
+ * @state {boolean} gameWon - Whether all pairs have been matched
+ */
+
 import { useState, useCallback } from 'react'
 import Toast from '../Toast'
 import Confetti from '../Confetti'
