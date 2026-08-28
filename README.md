@@ -20,3 +20,9 @@ If you are developing a production application, we recommend using TypeScript wi
 Why did the matching game break up with the memory game?
 
 Because it kept finding someone **else** a perfect match! 🃏
+
+---
+
+Why did the chess piece go to therapy?
+
+Because it had too many **moves** to process! ♟️
