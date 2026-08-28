@@ -1,3 +1,25 @@
+/**
+ * @file MemoryBoard.jsx
+ * @description Memory matching game where players flip cards to find matching pairs.
+ * Features multiple card themes, move counter, timer, and win screen with statistics.
+ * 
+ * @component
+ * @param {Object} props - Component props
+ * @param {Object} props.selectedSet - Currently selected card set
+ * @param {Function} props.onSetChange - Callback when card set is changed
+ * @param {Function} props.onPlayAgain - Callback when new game is started
+ * @returns {React.ReactElement} Memory game with card grid and stats
+ * 
+ * @state {Array} deck - Array of card objects with id, emoji, pairKey, flipped, matched
+ * @state {Array<number>} flippedIds - IDs of currently flipped cards (max 2)
+ * @state {number} moves - Number of moves made
+ * @state {number} matchedCount - Number of matched pairs
+ * @state {boolean} locked - Whether clicks are disabled during check
+ * @state {string} gameState - Current game state ('playing' or 'won')
+ * @state {string|null} toast - Toast message or null
+ * @state {number} elapsed - Seconds elapsed since game start
+ */
+
 import { useState, useEffect, useCallback, useRef } from "react";
 import { CARD_SETS, buildDeck } from "../../data/memoryCards";
 import Toast from "../Toast";

@@ -1,3 +1,18 @@
+/**
+ * @file WordChainBoard.jsx
+ * @description Word Chain puzzle game where players transform one word into another by changing one letter at a time.
+ * Each intermediate step must form a valid word. Players try to reach the end word in fewer steps than the par.
+ * 
+ * @component
+ * @returns {React.ReactElement} Word chain game with editable letter tiles and solution display
+ * 
+ * @state {Array<string>} chain - Array of confirmed words in the chain (starts with start word)
+ * @state {Array<string>} current - Current editable word as array of letters
+ * @state {string|null} toast - Toast message or null
+ * @state {boolean} shaking - Whether grid is shaking (error animation)
+ * @state {string} gameState - Current game state ('playing', 'won', or 'gave-up')
+ */
+
 import { useState, useRef, useCallback } from "react";
 import { clsx } from "clsx";
 import Toast from "../Toast";

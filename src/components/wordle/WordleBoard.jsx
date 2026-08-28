@@ -1,3 +1,21 @@
+/**
+ * @file WordleBoard.jsx
+ * @description Wordle game - guess the 5-letter word in 6 tries.
+ * Features keyboard input, letter state tracking (correct/present/absent), and daily puzzle rotation.
+ * 
+ * @component
+ * @returns {React.ReactElement} Wordle game with grid, keyboard, and result display
+ * 
+ * @state {string} answer - The target word to guess
+ * @state {Array<string>} guesses - Array of submitted guesses
+ * @state {string} current - Current word being typed
+ * @state {string} gameState - Current game state ('playing', 'won', or 'lost')
+ * @state {string|null} toast - Toast message or null
+ * @state {boolean} shakeRow - Whether current row is shaking (error animation)
+ * @state {boolean} bounceRow - Whether winning row is bouncing (celebration animation)
+ * @state {number} revealKey - Key to force re-render of rows for tile flip animation
+ */
+
 import { useState, useEffect, useCallback } from "react";
 import WordleRow from "./WordleRow";
 import WordleKeyboard from "./WordleKeyboard";
