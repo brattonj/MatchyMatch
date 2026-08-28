@@ -1,3 +1,19 @@
+/**
+ * @file GamePicker.jsx
+ * @description Game selection interface displaying all available games in a grid.
+ * Supports filtering by search, tag, and favorites. Shows game details in a modal preview.
+ * 
+ * @component
+ * @param {Object} props - Component props
+ * @param {Function} props.onGameSelect - Callback when a game is selected to play
+ * @returns {React.ReactElement} Game picker grid with search, filters, and preview modal
+ * 
+ * @state {string} searchTerm - Current search filter text
+ * @state {string|null} selectedTag - Currently selected tag filter or null for all
+ * @state {string[]} favorites - Array of favorited game IDs
+ * @state {string|null} openId - ID of game currently shown in preview modal or null
+ */
+
 import { useEffect, useMemo, useState } from 'react'
 
 const GAMES = [

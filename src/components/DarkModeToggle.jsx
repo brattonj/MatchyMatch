@@ -1,3 +1,15 @@
+/**
+ * @file DarkModeToggle.jsx
+ * @description Button component to toggle between dark and light modes.
+ * Displays sun icon in dark mode and moon icon in light mode.
+ * 
+ * @component
+ * @param {Object} props - Component props
+ * @param {boolean} props.dark - Current dark mode state
+ * @param {Function} props.onToggle - Callback when toggle button is clicked
+ * @returns {React.ReactElement} Toggle button with theme icon
+ */
+
 import { Sun, Moon } from 'lucide-react'
 
 export default function DarkModeToggle({ dark, onToggle }) {

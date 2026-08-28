@@ -1,3 +1,17 @@
+/**
+ * @file Header.jsx
+ * @description Application header component with logo, title, back button, and dark mode toggle.
+ * Displays the app branding and provides navigation controls.
+ * 
+ * @component
+ * @param {Object} props - Component props
+ * @param {string|null} props.activeGame - Currently active game identifier or null
+ * @param {Function} props.onGoHome - Callback to navigate back to game picker
+ * @param {boolean} props.dark - Dark mode enabled state
+ * @param {Function} props.onToggleDark - Callback to toggle dark mode
+ * @returns {React.ReactElement} Header with logo, title, navigation, and theme toggle
+ */
+
 import DarkModeToggle from './DarkModeToggle'
 
 export default function Header({ activeGame, onGoHome, dark, onToggleDark }) {

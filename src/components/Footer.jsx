@@ -1,3 +1,11 @@
+/**
+ * @file Footer.jsx
+ * @description Application footer component displaying copyright and creator information.
+ * 
+ * @component
+ * @returns {React.ReactElement} Footer with attribution text
+ */
+
 function Footer() {
   return (
     <footer
