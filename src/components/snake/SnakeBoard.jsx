@@ -1,3 +1,20 @@
+/**
+ * @file SnakeBoard.jsx
+ * @description Classic Snake arcade game rendered on HTML5 canvas.
+ * Players control a snake to eat food and grow longer while avoiding walls and self-collision.
+ * Features adjustable speed, pause/resume, and mobile D-pad controls.
+ * 
+ * @component
+ * @param {Object} props - Component props
+ * @param {boolean} props.dark - Dark mode enabled state
+ * @returns {React.ReactElement} Snake game with canvas, controls, and score display
+ * 
+ * @state {Object} gameState - Current game state (snake, direction, food, score, status)
+ * @state {number} speedIdx - Selected speed index (0-2)
+ * @state {number} best - Best score achieved
+ * @state {Object} renderState - State to render (may be interpolated)
+ */
+
 import { useState, useEffect, useRef, useCallback } from "react";
 
 // ── Constants ────────────────────────────────────────────────────────────────

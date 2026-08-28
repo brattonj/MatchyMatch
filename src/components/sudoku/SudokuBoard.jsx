@@ -1,3 +1,25 @@
+/**
+ * @file SudokuBoard.jsx
+ * @description 6×6 Sudoku puzzle game with dynamic puzzle generation.
+ * Players fill cells with digits 1-6 following Sudoku rules (rows, columns, 2×3 boxes).
+ * Features conflict detection, mistake tracking, and progress display.
+ * 
+ * @component
+ * @param {Object} props - Component props
+ * @param {Function} props.onNewGame - Callback to start a new puzzle
+ * @returns {React.ReactElement} Sudoku game interface with grid and number pad
+ * 
+ * @state {Array<Array<number>>} board - Current board state with player entries
+ * @state {Array<Array<number>>} given - Original puzzle givens (unchangeable)
+ * @state {Array<Array<number>>} solution - Puzzle solution
+ * @state {Array|null} selected - Currently selected cell [row, col] or null
+ * @state {Set<string>} conflicts - Set of cell keys with conflicts
+ * @state {number} mistakes - Number of incorrect entries made
+ * @state {string} gameState - Current game state ('playing' or 'won')
+ * @state {boolean} shaking - Whether grid is shaking (error animation)
+ * @state {string|null} toast - Toast message or null
+ */
+
 import { useState, useCallback, useEffect } from "react";
 import { clsx } from "clsx";
 import Toast from "../Toast";
