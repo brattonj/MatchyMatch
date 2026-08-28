@@ -1,3 +1,22 @@
+/**
+ * @file CrosswordBoard.jsx
+ * @description Interactive crossword puzzle game component.
+ * Players fill in a 5×5 grid by solving across and down clues.
+ * Supports keyboard navigation, cell highlighting, and clue selection.
+ * 
+ * @component
+ * @param {Object} props - Component props
+ * @param {Function} props.onNewGame - Callback to start a new puzzle
+ * @returns {React.ReactElement} Crossword puzzle interface with grid and clues
+ * 
+ * @state {Array<Array<string>>} letters - Current letter entries in the grid
+ * @state {Array} activeCell - Currently active cell [row, col] or null
+ * @state {string|null} activeClue - Currently selected clue key (e.g., 'A1', 'D2')
+ * @state {string} gameState - Current game state ('playing' or 'won')
+ * @state {Array<string>} solvedClues - Array of solved clue keys
+ * @state {string|null} toast - Toast message or null
+ */
+
 import { useState, useEffect, useCallback, useRef } from "react";
 import Toast from "../Toast";
 

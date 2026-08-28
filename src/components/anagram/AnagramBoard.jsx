@@ -1,3 +1,24 @@
+/**
+ * @file AnagramBoard.jsx
+ * @description Anagram puzzle game where players rearrange scrambled letters to form words.
+ * Features 5 rounds with time limits, scoring based on speed, and hints.
+ * 
+ * @component
+ * @param {Object} props - Component props
+ * @param {Function} props.onNewGame - Callback to start a new game
+ * @returns {React.ReactElement} Anagram game interface with timer, scrambled letters, and answer slots
+ * 
+ * @state {number} roundIndex - Current round (0-4)
+ * @state {Array} rounds - Array of round data with words and hints
+ * @state {number} timeLeft - Seconds remaining in current round
+ * @state {number} score - Total score accumulated
+ * @state {Array} answerSlots - Letters placed in the answer area
+ * @state {Array} scrambledSlots - Scrambled letters available to select
+ * @state {string|null} revealState - Reveal state ('correct', 'wrong', or null)
+ * @state {string} gameState - Current game state ('playing', 'won', or 'lost')
+ * @state {string|null} toast - Toast message or null
+ */
+
 import { useState, useEffect, useCallback, useRef } from "react";
 import Toast from "../Toast";
 import { ANAGRAM_WORDS } from "../../data/anagramWords";
