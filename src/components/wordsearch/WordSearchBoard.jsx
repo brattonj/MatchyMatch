@@ -1,3 +1,24 @@
+/**
+ * @file WordSearchBoard.jsx
+ * @description Word Search puzzle game where players drag across letters to find hidden words.
+ * Words can run horizontally, vertically, or diagonally. Features theme selection, hints, and progress tracking.
+ * 
+ * @component
+ * @param {Object} props - Component props
+ * @param {Function} props.onNewGame - Callback to start a new puzzle
+ * @returns {React.ReactElement} Word search grid with word list and controls
+ * 
+ * @state {Object} selectedPuzzle - Currently selected puzzle theme
+ * @state {Array<Array<string>>} grid - Letter grid for the puzzle
+ * @state {Array} placements - Word placements with positions and directions
+ * @state {Array<string>} found - Words that have been found
+ * @state {Array} selecting - Currently selected cells during drag
+ * @state {Array} foundCells - Cells that are part of found words
+ * @state {Array} hintCells - Cells highlighted by hint
+ * @state {string} gameState - Current game state ('playing' or 'won')
+ * @state {string|null} toast - Toast message or null
+ */
+
 import { useState, useCallback, useEffect, useRef } from "react";
 import { PUZZLES, getWordCells } from "../../data/wordSearchPuzzles";
 import Toast from "../Toast";

@@ -1,3 +1,21 @@
+/**
+ * @file HangmanBoard.jsx
+ * @description Hangman word guessing game with visual gallows drawing.
+ * Players guess letters to reveal a hidden word before running out of wrong guesses (max 6).
+ * Features category hints and keyboard/button input.
+ * 
+ * @component
+ * @param {Object} props - Component props
+ * @param {Function} props.onNewGame - Callback to start a new game
+ * @returns {React.ReactElement} Hangman game with gallows, word display, and keyboard
+ * 
+ * @state {Object} wordData - Current word data with word, category, and hint
+ * @state {Set<string>} guessed - Set of guessed letters
+ * @state {number} wrongCount - Number of wrong guesses (0-6)
+ * @state {string} gameState - Current game state ('playing', 'won', or 'lost')
+ * @state {string|null} toast - Toast message or null
+ */
+
 import { useState, useEffect, useCallback } from "react";
 import Toast from "../Toast";
 import { pickWord } from "../../data/hangmanWords";
