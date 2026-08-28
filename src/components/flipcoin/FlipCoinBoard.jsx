@@ -1,3 +1,21 @@
+/**
+ * @file FlipCoinBoard.jsx
+ * @description Coin flip prediction game component.
+ * Players predict heads or tails and flip a coin to test their luck.
+ * Tracks wins/losses and displays win rate with confetti on correct predictions.
+ * 
+ * @component
+ * @returns {JSX.Element} Coin flip game board
+ * 
+ * @state {string|null} prediction - Player's prediction ('heads', 'tails', or null)
+ * @state {string|null} result - Coin flip result ('heads', 'tails', or null)
+ * @state {boolean} isFlipping - Whether coin is currently flipping
+ * @state {number} wins - Number of correct predictions
+ * @state {number} losses - Number of incorrect predictions
+ * @state {string} message - Status message to display
+ * @state {boolean} showConfetti - Whether to show confetti animation
+ */
+
 import { useState } from 'react'
 import Toast from '../Toast'
 import Confetti from '../Confetti'

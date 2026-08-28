@@ -1,3 +1,20 @@
+/**
+ * @file DiceRollBoard.jsx
+ * @description Dice rolling game component.
+ * Players roll two dice trying to reach a target sum of 7 within 10 rolls.
+ * Displays dice values, roll history, and game status with confetti on win.
+ * 
+ * @component
+ * @returns {JSX.Element} Dice rolling game board
+ * 
+ * @state {Array<number>} dice - Current dice values [d1, d2]
+ * @state {number} rolls - Number of rolls made
+ * @state {string} gameState - Game state ('playing', 'won', or 'lost')
+ * @state {string} message - Status message to display
+ * @state {boolean} showConfetti - Whether to show confetti animation
+ * @state {Array<Object>} rollHistory - History of rolls {d1, d2, sum}
+ */
+
 import { useState } from 'react'
 import Toast from '../Toast'
 import Confetti from '../Confetti'

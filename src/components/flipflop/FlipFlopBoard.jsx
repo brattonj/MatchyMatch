@@ -1,3 +1,21 @@
+/**
+ * @file FlipFlopBoard.jsx
+ * @description Fruit matching memory game component.
+ * Players flip cards to find matching pairs of fruit emojis.
+ * Tracks moves and displays win screen when all pairs are matched.
+ * 
+ * @component
+ * @returns {JSX.Element} Fruit matching game board
+ * 
+ * @state {number} gameKey - Key to reset game instance
+ * @state {Object} state - Game state object
+ * @state {Array<Object>} state.cards - Array of card objects with emoji and label
+ * @state {Set} state.flipped - Set of currently flipped card indices
+ * @state {Set} state.matched - Set of matched card indices
+ * @state {number} state.moves - Number of moves made
+ * @state {string} state.gameState - Current game state ('playing' or 'won')
+ */
+
 import { useState, useCallback } from "react";
 
 // ── Constants ────────────────────────────────────────────────────────────────

@@ -1,3 +1,22 @@
+/**
+ * @file CatMatchBoard.jsx
+ * @description Cat matching memory game component.
+ * Players flip cards to find matching pairs of cat emojis.
+ * Tracks moves and displays win screen with confetti when all pairs are matched.
+ * 
+ * @component
+ * @returns {JSX.Element} Cat matching game board
+ * 
+ * @state {number} gameKey - Key to reset game instance
+ * @state {Object} state - Game state object
+ * @state {Array<Object>} state.cards - Array of card objects with emoji and label
+ * @state {Set} state.flipped - Set of currently flipped card indices
+ * @state {Set} state.matched - Set of matched card indices
+ * @state {number} state.moves - Number of moves made
+ * @state {string} state.gameState - Current game state ('playing' or 'won')
+ * @state {boolean} showConfetti - Whether to show confetti animation
+ */
+
 import { useState, useCallback } from 'react'
 import Confetti from '../Confetti'
 
