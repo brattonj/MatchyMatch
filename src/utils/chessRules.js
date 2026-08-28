@@ -1,3 +1,12 @@
+/**
+ * @file chessRules.js
+ * @description Chess game logic and move validation utilities.
+ * Implements standard chess rules including piece movement, capture, check/checkmate detection,
+ * and algebraic notation for moves.
+ * 
+ * @module chessRules
+ */
+
 // Initialize the chess board with standard starting position
 export function initializeBoard() {
   const board = Array(8)
