@@ -1,3 +1,20 @@
+/**
+ * @file ScrambleBoard.jsx
+ * @description Scramble word puzzle game where players unscramble letters to form a hidden word.
+ * Features daily word rotation, hint system, and wrong guess tracking (max 5).
+ * 
+ * @component
+ * @returns {React.ReactElement} Scramble game with letter pool and answer slots
+ * 
+ * @state {Array} scrambled - Array of scrambled letters with pool indices
+ * @state {Array<number|null>} answer - Answer slots with pool indices or null
+ * @state {number} wrongGuesses - Number of wrong submissions (0-5)
+ * @state {string} gameState - Current game state ('playing', 'won', or 'lost')
+ * @state {string|null} toast - Toast message or null
+ * @state {boolean} isWrong - Whether to show wrong state flash
+ * @state {boolean} hintVisible - Whether hint is currently visible
+ */
+
 import { useState, useEffect, useCallback } from "react";
 import { clsx } from "clsx";
 import Toast from "../Toast";

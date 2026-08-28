@@ -1,3 +1,19 @@
+/**
+ * @file NumberCrunchBoard.jsx
+ * @description Number Crunch - A Countdown-style puzzle where players combine 6 numbers using +−×÷ to reach a target.
+ * Features dynamic puzzle generation, step tracking, and solution display.
+ * 
+ * @component
+ * @returns {React.ReactElement} Number crunch game with tiles and operators
+ * 
+ * @state {Array} slots - Array of number slots with value, originalIndex, used, isResult
+ * @state {number|null} firstPick - Index of first selected number or null
+ * @state {string|null} selectedOp - Currently selected operator (+, −, ×, ÷) or null
+ * @state {Array} steps - Array of completed calculation steps
+ * @state {string} gameState - Current game state ('playing' or 'won')
+ * @state {string|null} toast - Toast message or null
+ */
+
 import { useState, useCallback } from "react";
 import { clsx } from "clsx";
 import Toast from "../Toast";
