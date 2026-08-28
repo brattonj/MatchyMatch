@@ -27,6 +27,8 @@ Because it kept finding someone **else** a perfect match! 🃏
 
 > "There's no business like show business, but there's plenty of business in show business." - Dolly Parton
 
+> "Find out who you are and do it on purpose." - Dolly Parton
+
 forge scoping test
 
 ## 🐕 A Cute Dog's Masterpiece
