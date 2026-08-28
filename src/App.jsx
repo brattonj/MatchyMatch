@@ -1,3 +1,17 @@
+/**
+ * @file App.jsx
+ * @description Main application component that manages game selection and routing.
+ * Renders the header, game picker or active game board, and footer.
+ * Manages dark mode state and game lifecycle (new game, game selection, home navigation).
+ * 
+ * @component
+ * @returns {React.ReactElement} The main app container with header, game content, and footer
+ * 
+ * @state {string|null} activeGame - Currently selected game identifier or null for home screen
+ * @state {number} gameKey - Key used to force remount of game components for fresh state
+ * @state {boolean} dark - Dark mode enabled state (from useDarkMode hook)
+ */
+
 import { useState } from 'react'
 import Header from './components/Header'
 import { useDarkMode } from './hooks/useDarkMode'
