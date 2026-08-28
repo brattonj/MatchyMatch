@@ -1,3 +1,22 @@
+/**
+ * @file useChessGame.js
+ * @description Custom hook for managing chess game state and logic.
+ * Handles board state, turn management, move validation, check/checkmate detection, and move history.
+ * 
+ * @returns {Object} Chess game state and control functions
+ * @returns {Array<Array<Object|null>>} .board - 8×8 chess board with pieces
+ * @returns {string} .turn - Current player ('white' or 'black')
+ * @returns {string} .gameStatus - Game status ('active', 'check', 'checkmate', 'stalemate')
+ * @returns {Object|null} .selectedSquare - Currently selected square {row, col} or null
+ * @returns {Array<Object>} .validMoves - Valid moves for selected piece
+ * @returns {Array<Object>} .moveHistory - Array of moves made {from, to, notation}
+ * @returns {Object} .capturedPieces - Captured pieces by color {white: [], black: []}
+ * @returns {Function} .selectSquare - Select a square on the board
+ * @returns {Function} .makeMove - Make a move to a target square
+ * @returns {Function} .undoMove - Undo the last move
+ * @returns {Function} .resetGame - Reset the game to initial state
+ */
+
 import { useState, useCallback } from 'react'
 import { initializeBoard, isValidMove, makeMove, isCheck, isCheckmate, isStalemate, getValidMoves } from '../utils/chessRules'
 

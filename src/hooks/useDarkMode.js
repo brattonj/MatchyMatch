@@ -1,3 +1,13 @@
+/**
+ * @file useDarkMode.js
+ * @description Custom hook for managing dark mode state with localStorage persistence.
+ * Respects system preference on first load, then persists user choice.
+ * 
+ * @returns {Object} Dark mode state and toggle function
+ * @returns {boolean} .dark - Whether dark mode is enabled
+ * @returns {Function} .toggle - Function to toggle dark mode
+ */
+
 import { useEffect, useState } from 'react'
 
 const STORAGE_KEY = 'puzzlr-dark-mode'
