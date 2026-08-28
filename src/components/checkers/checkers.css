@@ -1,0 +1,250 @@
+.checkers-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.checkers-main {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 2rem;
+  align-items: start;
+}
+
+/* Board */
+.checkers-board-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.checkers-board {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  gap: 0;
+  border: 3px solid var(--label-primary);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  background: #8b4513;
+  aspect-ratio: 1;
+  max-width: 500px;
+  width: 100%;
+}
+
+.checkers-row {
+  display: contents;
+}
+
+.checkers-square {
+  aspect-ratio: 1;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  transition: all 0.2s ease;
+  padding: 0;
+  background: none;
+
+  &.light {
+    background-color: #deb887;
+  }
+
+  &.dark {
+    background-color: #8b4513;
+  }
+
+  &.selected {
+    background-color: #baca44 !important;
+    box-shadow: inset 0 0 0 2px #8b8c1f;
+  }
+
+  &.valid-move {
+    background-color: rgba(186, 202, 68, 0.3) !important;
+  }
+
+  &:hover {
+    filter: brightness(1.1);
+  }
+
+  &:focus {
+    outline: 2px solid var(--accent);
+    outline-offset: -2px;
+  }
+}
+
+.move-indicator {
+  width: 30%;
+  height: 30%;
+  border-radius: 50%;
+  background-color: rgba(186, 202, 68, 0.6);
+  box-shadow: 0 0 0 2px rgba(186, 202, 68, 0.3);
+}
+
+.checkers-piece {
+  width: 70%;
+  height: 70%;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3), inset 0 1px 2px rgba(255, 255, 255, 0.3);
+  user-select: none;
+  position: relative;
+
+  &.piece-red {
+    background: linear-gradient(135deg, #ff4444 0%, #cc0000 100%);
+    border: 2px solid #990000;
+  }
+
+  &.piece-black {
+    background: linear-gradient(135deg, #333333 0%, #000000 100%);
+    border: 2px solid #000000;
+  }
+
+  .king-crown {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+  }
+}
+
+/* Right Panel */
+.checkers-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  min-width: 250px;
+}
+
+/* Game Status */
+.checkers-status {
+  padding: 1rem;
+  border-radius: 8px;
+  background: var(--fill-secondary);
+  border: 1px solid var(--stroke-tertiary);
+}
+
+.status-display {
+  font-weight: 600;
+  color: var(--label-primary);
+  font-size: 1.1rem;
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+
+.move-count {
+  font-size: 0.875rem;
+  color: var(--label-secondary);
+  text-align: center;
+}
+
+/* Captured Pieces */
+.checkers-captured {
+  padding: 1rem;
+  border-radius: 8px;
+  background: var(--fill-secondary);
+  border: 1px solid var(--stroke-tertiary);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.captured-section {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  text-align: center;
+}
+
+.captured-label {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--label-secondary);
+}
+
+.captured-count {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--accent);
+}
+
+/* Game Controls */
+.checkers-controls {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+}
+
+.checkers-btn {
+  padding: 0.75rem 1rem;
+  border-radius: 6px;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 0.875rem;
+
+  &.checkers-btn--primary {
+    background: var(--accent);
+    color: white;
+
+    &:hover {
+      filter: brightness(1.1);
+    }
+  }
+
+  &.checkers-btn--secondary {
+    background: var(--accent);
+    color: white;
+
+    &:hover:not(:disabled) {
+      filter: brightness(1.1);
+    }
+
+    &:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+  }
+
+  &:focus {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+  }
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .checkers-main {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .checkers-panel {
+    min-width: auto;
+    width: 100%;
+  }
+
+  .checkers-board {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .checkers-main {
+    gap: 1rem;
+  }
+
+  .checkers-controls {
+    grid-template-columns: 1fr;
+  }
+
+  .checkers-btn {
+    width: 100%;
+  }
+}
