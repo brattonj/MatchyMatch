@@ -1,3 +1,20 @@
+/**
+ * @file Game2048Board.jsx
+ * @description 2048 sliding tile puzzle game where players combine tiles to reach 2048.
+ * Features keyboard and swipe controls, score tracking, best score persistence, and win/game over states.
+ * 
+ * @component
+ * @returns {React.ReactElement} 2048 game with 4×4 grid and score display
+ * 
+ * @state {Array<number|null>} grid - 16-element array representing the 4×4 grid
+ * @state {number} score - Current game score
+ * @state {number} best - Best score achieved (persisted to localStorage)
+ * @state {string} gameState - Current game state ('playing', 'won', or 'over')
+ * @state {boolean} wonAcked - Whether player has acknowledged the win
+ * @state {Set<number>} newCells - Indices of newly spawned cells
+ * @state {Set<number>} mergedCells - Indices of cells that were merged
+ */
+
 import { useState, useEffect, useCallback, useRef } from "react";
 import { clsx } from "clsx";
 import "./game2048.css";

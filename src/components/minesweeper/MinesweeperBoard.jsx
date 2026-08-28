@@ -1,3 +1,19 @@
+/**
+ * @file MinesweeperBoard.jsx
+ * @description Minesweeper puzzle game with adjustable difficulty levels.
+ * Players reveal cells to find all safe cells while avoiding mines. Features flagging, timer, and difficulty selection.
+ * 
+ * @component
+ * @returns {React.ReactElement} Minesweeper game with grid and controls
+ * 
+ * @state {Array<Array<Object>>} grid - 2D grid of cell objects with mine, revealed, flagged, adjacent properties
+ * @state {boolean} minesPlaced - Whether mines have been placed (after first click)
+ * @state {string} gameState - Current game state ('playing', 'won', or 'lost')
+ * @state {number} time - Seconds elapsed since game start
+ * @state {number|null} timerRef - Timer interval ID or null
+ * @state {number} diffIdx - Current difficulty index (0-2)
+ */
+
 import { useState, useCallback } from 'react'
 import {
   DIFFICULTIES,

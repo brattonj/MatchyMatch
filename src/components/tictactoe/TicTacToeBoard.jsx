@@ -1,3 +1,19 @@
+/**
+ * @file TicTacToeBoard.jsx
+ * @description Tic Tac Toe game against an AI opponent (Brian).
+ * Features minimax AI algorithm, score tracking across multiple games, and win/draw detection.
+ * 
+ * @component
+ * @returns {React.ReactElement} Tic Tac Toe game with 3×3 grid and stats
+ * 
+ * @state {Array<string|null>} squares - 9-element array representing the 3×3 grid (X, O, or null)
+ * @state {string} gameState - Current game state ('playing' or 'won')
+ * @state {number} playerWins - Number of games won by player
+ * @state {number} aiWins - Number of games won by AI
+ * @state {number} draws - Number of drawn games
+ * @state {boolean} isAIThinking - Whether AI is calculating its move
+ */
+
 import { useState, useCallback } from 'react'
 
 // ── Single cell ───────────────────────────────────────────────────
