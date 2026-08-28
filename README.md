@@ -29,6 +29,10 @@ Because it kept finding someone **else** a perfect match! 🃏
 
 forge scoping test
 
+## 🎭 Tim Curry Wisdom
+
+> "I do love playing villains. It's so much fun to play a character that's unrestrained by the normal social conventions." - Tim Curry
+
 ## 🐕 A Cute Dog's Masterpiece
 
 Once upon a time, there was a golden retriever named Biscuit who discovered a passion for painting. With a paintbrush held gently in his mouth and his tail wagging with artistic inspiration, Biscuit would spend his afternoons creating beautiful landscapes.
