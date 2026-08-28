@@ -195,6 +195,12 @@ const GAMES = [
     tag: 'Strategy',
   },
   {
+    id: 'checkers',
+    name: 'Checkers',
+    description: 'Play the classic game of checkers against a friend',
+    tag: 'Strategy',
+  },
+  {
     id: 'rochellespinner',
     name: "Rochelle's Spinner",
     description: 'Spin the wheel and try your luck!',
