@@ -1,3 +1,17 @@
+/**
+ * @file Confetti.jsx
+ * @description Animated confetti particle effect component.
+ * Generates random particles with varying colors, shapes, sizes, and animations.
+ * Particles fall from top with rotation and drift effects.
+ * 
+ * @component
+ * @param {Object} props - Component props
+ * @param {number} [props.count=60] - Number of confetti particles to generate
+ * @returns {React.ReactElement} Container with animated confetti particles
+ * 
+ * @state {Array} particles - Array of particle objects with animation properties
+ */
+
 import { useState } from "react";
 
 const COLORS = [

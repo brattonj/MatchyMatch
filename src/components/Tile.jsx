@@ -1,3 +1,17 @@
+/**
+ * @file Tile.jsx
+ * @description Individual tile component for the Matchy Match game board.
+ * Displays a word and handles selection state with visual feedback.
+ * 
+ * @component
+ * @param {Object} props - Component props
+ * @param {string} props.word - The word to display on the tile
+ * @param {boolean} props.isSelected - Whether the tile is currently selected
+ * @param {boolean} props.isRevealed - Whether the tile has been matched and revealed
+ * @param {Function} props.onClick - Callback when tile is clicked
+ * @returns {React.ReactElement} Interactive tile button with word
+ */
+
 import { clsx } from "clsx";
 
 export default function Tile({ word, isSelected, isRevealed, onClick }) {

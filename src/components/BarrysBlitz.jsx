@@ -1,11 +1,25 @@
+/**
+ * @file BarrysBlitz.jsx
+ * @description Barry's Blitz - A fast-paced word matching game where players race against time.
+ * Players match words to their correct categories within 60 seconds.
+ * Named after the famous speedster, this game is all about speed!
+ * 
+ * @component
+ * @returns {React.ReactElement} Game interface with menu, playing, and game over states
+ * 
+ * @state {string} gameState - Current game state ('menu', 'playing', or 'gameOver')
+ * @state {Object|null} currentPuzzle - Current puzzle data or null
+ * @state {number} timeLeft - Seconds remaining in the game
+ * @state {number} score - Current score (points per correct match)
+ * @state {Array<string>} matchedPairs - Words that have been correctly matched
+ * @state {string|null} selectedWord - Currently selected word or null
+ * @state {number|null} selectedCategory - Currently selected category index or null
+ * @state {string} feedback - Feedback message for user actions
+ * @state {Array} allWords - All words in current puzzle with category indices
+ */
+
 import React, { useState, useEffect } from 'react';
 import '../styles/BarrysBlitz.css';
-
-/**
- * Barry's Blitz - A fast-paced word matching game
- * Players race against time to match words to their correct categories
- * Named after the famous speedster, this game is all about speed!
- */
 
 const GAME_DURATION = 60; // seconds
 const POINTS_PER_MATCH = 10;

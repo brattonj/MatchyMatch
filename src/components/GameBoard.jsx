@@ -1,3 +1,28 @@
+/**
+ * @file GameBoard.jsx
+ * @description Main game board for the Matchy Match game.
+ * Manages tile selection, category matching, lives, and game state (playing/won/lost).
+ * Supports normal and hard modes with different lives counts.
+ * 
+ * @component
+ * @param {Object} props - Component props
+ * @param {Object} props.puzzle - Puzzle data containing categories and words
+ * @param {Function} props.onNewGame - Callback to start a new game
+ * @returns {React.ReactElement} Game board with tiles, controls, and game state display
+ * 
+ * @state {string} mode - Game difficulty mode ('normal' or 'hard')
+ * @state {boolean} hasStarted - Whether the game has started
+ * @state {Array} tiles - Array of tile objects with word and categoryId
+ * @state {Array} selected - Currently selected tile words (max 4)
+ * @state {Array} revealed - Words that have been correctly matched
+ * @state {number} lives - Remaining lives
+ * @state {string|null} toast - Toast message to display or null
+ * @state {boolean} isShaking - Whether grid is shaking (wrong guess animation)
+ * @state {string} gameState - Current game state ('playing', 'won', or 'lost')
+ * @state {Array} guessedCategories - Categories that have been correctly guessed
+ * @state {number} guessCount - Total number of guesses made
+ */
+
 import { useState, useCallback, useRef } from "react";
 import { clsx } from "clsx";
 import Tile from "./Tile";

@@ -1,3 +1,17 @@
+/**
+ * @file RevealedCategory.jsx
+ * @description Displays a correctly matched category with its title and words.
+ * Shows category-specific styling based on color theme.
+ * 
+ * @component
+ * @param {Object} props - Component props
+ * @param {Object} props.category - Category object with title, words, and color
+ * @param {string} props.category.title - Category title/theme
+ * @param {Array<string>} props.category.words - Words in the category
+ * @param {string} props.category.color - Color theme identifier
+ * @returns {React.ReactElement} Styled category display with title and words
+ */
+
 import { COLOR_STYLES } from "../data/puzzles";
 
 export default function RevealedCategory({ category }) {

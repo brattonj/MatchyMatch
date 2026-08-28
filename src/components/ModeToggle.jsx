@@ -1,3 +1,16 @@
+/**
+ * @file ModeToggle.jsx
+ * @description Segmented control to toggle between Normal and Hard difficulty modes.
+ * Can be disabled to lock the mode once the game has started.
+ * 
+ * @component
+ * @param {Object} props - Component props
+ * @param {string} props.mode - Current mode ('normal' or 'hard')
+ * @param {Function} props.onChange - Callback when mode is changed
+ * @param {boolean} [props.disabled] - Whether the toggle is disabled/locked
+ * @returns {React.ReactElement} Segmented control with mode options
+ */
+
 export default function ModeToggle({ mode, onChange, disabled }) {
   return (
     <div className="mode-toggle" aria-label="Difficulty selector">

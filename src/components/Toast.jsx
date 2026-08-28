@@ -1,3 +1,17 @@
+/**
+ * @file Toast.jsx
+ * @description Toast notification component that appears at the top of the screen.
+ * Automatically dismisses after 1.8 seconds with fade-out animation.
+ * 
+ * @component
+ * @param {Object} props - Component props
+ * @param {string} props.message - Message text to display
+ * @param {Function} props.onDone - Callback when toast has finished dismissing
+ * @returns {React.ReactElement} Toast notification with auto-dismiss
+ * 
+ * @state {boolean} visible - Whether the toast is currently visible
+ */
+
 import { useEffect, useState } from "react";
 import { clsx } from "clsx";
 

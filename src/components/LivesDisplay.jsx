@@ -1,3 +1,14 @@
+/**
+ * @file LivesDisplay.jsx
+ * @description Displays remaining lives as text and visual indicators (dots).
+ * 
+ * @component
+ * @param {Object} props - Component props
+ * @param {number} props.lives - Current number of lives remaining
+ * @param {number} [props.maxLives=5] - Maximum number of lives
+ * @returns {React.ReactElement} Lives display with text and dot indicators
+ */
+
 export default function LivesDisplay({ lives, maxLives = 5 }) {
   return (
     <div className="flex flex-col items-center gap-2">
