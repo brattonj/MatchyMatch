@@ -1,3 +1,23 @@
+/**
+ * @file TypeRaceBoard.jsx
+ * @description Type Race - A typing speed and accuracy game where players type phrases as fast as possible.
+ * Features live WPM calculation, accuracy tracking, and result screen with performance rating.
+ * 
+ * @component
+ * @param {Object} props - Component props
+ * @param {Function} props.onNewGame - Callback to start a new game
+ * @returns {React.ReactElement} Type race game with phrase display and input
+ * 
+ * @state {Object} phrase - Current phrase with text and category
+ * @state {string} typed - Currently typed text
+ * @state {string} gameState - Current game state ('idle', 'playing', or 'done')
+ * @state {number} elapsed - Seconds elapsed since typing started
+ * @state {number} keystrokes - Total keystrokes made
+ * @state {number} mistakes - Total mistakes made
+ * @state {boolean} shaking - Whether phrase display is shaking (error animation)
+ * @state {string|null} toast - Toast message or null
+ */
+
 import { useState, useEffect, useRef, useCallback } from "react";
 import { clsx } from "clsx";
 import { pickPhrase } from "../../data/typeRacePhrases";

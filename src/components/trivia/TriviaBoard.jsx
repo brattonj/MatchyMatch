@@ -1,3 +1,23 @@
+/**
+ * @file TriviaBoard.jsx
+ * @description Trivia quiz game with 10 multiple-choice questions across various categories.
+ * Features category display, answer review, and score calculation with percentage ring.
+ * 
+ * @component
+ * @param {Object} props - Component props
+ * @param {Function} props.onNewGame - Callback to start a new quiz
+ * @returns {React.ReactElement} Trivia game with questions, choices, and results
+ * 
+ * @state {Array} questions - Array of 10 trivia questions with choices and answers
+ * @state {number} qIndex - Current question index (0-9)
+ * @state {string|null} selected - Currently selected answer letter (A-D) or null
+ * @state {boolean} answered - Whether current question has been answered
+ * @state {number} score - Number of correct answers
+ * @state {Array<string|null>} userAnswers - Array of user answers for all questions
+ * @state {boolean} shaking - Whether question card is shaking (error animation)
+ * @state {string|null} toast - Toast message or null
+ */
+
 import { useState, useCallback } from "react";
 import { clsx } from "clsx";
 import Toast from "../Toast";
