@@ -1,3 +1,22 @@
+/**
+ * @file RochellesSpinnerBoard.jsx
+ * @description Spinning wheel game component.
+ * Players spin a colorful wheel with 8 segments to win or lose.
+ * Even-numbered segments are wins, odd-numbered are losses.
+ * Tracks win/loss ratio and displays confetti on wins.
+ * 
+ * @component
+ * @returns {JSX.Element} Spinning wheel game board
+ * 
+ * @state {boolean} isSpinning - Whether the wheel is currently spinning
+ * @state {number|null} result - Index of the winning segment (0-7)
+ * @state {number} wins - Number of wins
+ * @state {number} losses - Number of losses
+ * @state {string} message - Status message
+ * @state {boolean} showConfetti - Whether to show confetti animation
+ * @state {number} rotation - Current rotation angle in degrees
+ */
+
 import { useState } from 'react'
 import Toast from '../Toast'
 import Confetti from '../Confetti'

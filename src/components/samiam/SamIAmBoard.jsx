@@ -1,3 +1,22 @@
+/**
+ * @file SamIAmBoard.jsx
+ * @description Dr. Seuss-themed word guessing game component.
+ * Players guess words based on progressive clues (5 clues available).
+ * Maximum 5 guesses allowed, with confetti on correct guesses.
+ * 
+ * @component
+ * @returns {JSX.Element} Word guessing game board
+ * 
+ * @state {Object} entry - Current word entry with word and clues array
+ * @state {number} clueIndex - Index of currently revealed clue (0-4)
+ * @state {string} guessInput - Current input text
+ * @state {Array<Object>} guessHistory - Array of guesses {guess, correct}
+ * @state {string} gameState - Game state ('playing', 'won', or 'lost')
+ * @state {string} toastMsg - Toast message to display
+ * @state {boolean} showConfetti - Whether to show confetti animation
+ * @ref {HTMLInputElement} inputRef - Reference to guess input field
+ */
+
 import { useState, useRef } from 'react'
 import Toast from '../Toast'
 import Confetti from '../Confetti'

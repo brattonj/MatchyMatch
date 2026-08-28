@@ -1,3 +1,24 @@
+/**
+ * @file NathanielNinjaBoard.jsx
+ * @description Number identification game component.
+ * Players identify a target number from four options within 30 seconds.
+ * Includes level progression, streak tracking, and score multiplier based on level.
+ * 
+ * @component
+ * @returns {JSX.Element} Number identification game board
+ * 
+ * @state {string} gameState - Game state ('playing', 'won', 'lost')
+ * @state {number} score - Current score (level * 10 per correct answer)
+ * @state {number} level - Current level (increases every 5 correct answers)
+ * @state {number} timeLeft - Seconds remaining (starts at 30)
+ * @state {number} currentNumber - Target number to identify
+ * @state {Array<number>} options - Four answer options (one correct, three wrong)
+ * @state {string|null} toast - Toast message to display
+ * @state {number} streak - Current correct answer streak
+ * @ref {number} timerRef - Interval ID for countdown timer
+ * @ref {HTMLElement} gameRef - Reference to game container
+ */
+
 import { useState, useEffect, useCallback, useRef } from 'react'
 import Toast from '../Toast'
 

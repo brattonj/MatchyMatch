@@ -1,3 +1,21 @@
+/**
+ * @file PuppyFetchBoard.jsx
+ * @description Dog breed matching memory game component.
+ * Players flip cards to find matching pairs of dog breeds.
+ * Tracks fetches (moves) and displays win screen when all pairs are matched.
+ * 
+ * @component
+ * @returns {JSX.Element} Dog breed matching game board
+ * 
+ * @state {number} gameKey - Key to reset game instance
+ * @state {Object} state - Game state object
+ * @state {Array<Object>} state.cards - Array of card objects with breed and emoji
+ * @state {Set} state.flipped - Set of currently flipped card indices
+ * @state {Set} state.matched - Set of matched card indices
+ * @state {number} state.moves - Number of moves (fetches) made
+ * @state {string} state.gameState - Current game state ('playing' or 'won')
+ */
+
 import { useState, useCallback } from "react"
 import { DOG_PAIRS } from "../../data/puppyFetchData"
 
