@@ -1,3 +1,16 @@
+/**
+ * @file CapturedPieces.jsx
+ * @description Displays captured pieces for both players in chess game.
+ * Shows piece symbols and calculates material advantage (total value of captured pieces).
+ * 
+ * @component
+ * @param {Object} props - Component props
+ * @param {Object} props.capturedPieces - Captured pieces organized by color
+ * @param {Array<Object>} props.capturedPieces.white - White pieces captured by black
+ * @param {Array<Object>} props.capturedPieces.black - Black pieces captured by white
+ * @returns {JSX.Element} Two sections showing captured pieces and material count for each side
+ */
+
 const PIECE_SYMBOLS = {
   pawn: { white: '♙', black: '♟' },
   rook: { white: '♖', black: '♜' },

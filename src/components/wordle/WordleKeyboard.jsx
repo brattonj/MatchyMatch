@@ -1,3 +1,16 @@
+/**
+ * @file WordleKeyboard.jsx
+ * @description Keyboard component for Wordle game.
+ * Displays a QWERTY keyboard layout with letter state indicators (correct, present, absent).
+ * Handles key press events and applies visual styling based on letter states.
+ * 
+ * @component
+ * @param {Object} props - Component props
+ * @param {Function} props.onKey - Callback function when a key is pressed, receives the key string
+ * @param {Object} [props.letterStates={}] - Object mapping letters to their states ('correct', 'present', 'absent')
+ * @returns {JSX.Element} Keyboard UI with three rows of letter buttons
+ */
+
 import { clsx } from "clsx";
 
 const ROWS = [

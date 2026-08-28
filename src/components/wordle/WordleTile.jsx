@@ -1,3 +1,18 @@
+/**
+ * @file WordleTile.jsx
+ * @description Individual tile component for Wordle game.
+ * Displays a single letter with state-based styling and animations (flip, bounce).
+ * States: empty, active, filled, correct, present, absent.
+ * 
+ * @component
+ * @param {Object} props - Component props
+ * @param {string} [props.letter=""] - Letter to display
+ * @param {string} [props.state="empty"] - Tile state: 'empty', 'active', 'filled', 'correct', 'present', or 'absent'
+ * @param {number} [props.flipDelay=0] - Delay in milliseconds for flip animation
+ * @param {boolean} [props.bounce=false] - Whether to apply bounce animation
+ * @returns {JSX.Element} Styled tile with letter and animations
+ */
+
 import { clsx } from "clsx";
 
 // state: "empty" | "active" | "filled" | "correct" | "present" | "absent"

@@ -1,3 +1,20 @@
+/**
+ * @file WordleRow.jsx
+ * @description Row component for Wordle game displaying 5 tiles.
+ * Manages tile states (empty, filled, active, correct, present, absent) and animations.
+ * Handles duplicate letter logic when evaluating guesses against the answer.
+ * 
+ * @component
+ * @param {Object} props - Component props
+ * @param {string} [props.guess=""] - Current guess string (up to 5 letters)
+ * @param {string} [props.answer=""] - Answer string for comparison (5 letters)
+ * @param {boolean} [props.submitted=false] - Whether the guess has been submitted
+ * @param {boolean} [props.isActive=false] - Whether this is the active row being typed
+ * @param {boolean} [props.shake=false] - Whether to apply shake animation
+ * @param {boolean} [props.bounce=false] - Whether to apply bounce animation
+ * @returns {JSX.Element} Row of 5 WordleTile components with appropriate states
+ */
+
 import { clsx } from "clsx";
 import WordleTile from "./WordleTile";
 

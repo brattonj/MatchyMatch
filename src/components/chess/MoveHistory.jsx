@@ -1,3 +1,14 @@
+/**
+ * @file MoveHistory.jsx
+ * @description Displays the history of moves made in a chess game.
+ * Shows moves in algebraic notation with move numbers.
+ * 
+ * @component
+ * @param {Object} props - Component props
+ * @param {Array<Object>} props.moves - Array of moves with notation {notation: string}
+ * @returns {JSX.Element} Move history list with move numbers and notation
+ */
+
 export default function MoveHistory({ moves }) {
   return (
     <div className="move-history">
