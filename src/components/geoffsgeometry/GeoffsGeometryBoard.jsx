@@ -1,3 +1,22 @@
+/**
+ * @file GeoffsGeometryBoard.jsx
+ * @description Shape identification game component.
+ * Players identify shapes displayed at the top by clicking matching shapes below.
+ * Includes 30-second timer, score tracking, and streak counter.
+ * 
+ * @component
+ * @returns {JSX.Element} Shape identification game board
+ * 
+ * @state {string} gameState - Game state ('start', 'playing', or 'gameover')
+ * @state {Object|null} currentShape - Current shape to identify
+ * @state {number} score - Number of correct identifications
+ * @state {number} streak - Current correct answer streak
+ * @state {string} message - Status message to display
+ * @state {boolean} showConfetti - Whether to show confetti animation
+ * @state {number} timeLeft - Seconds remaining in game
+ * @state {boolean} answered - Whether current shape has been answered
+ */
+
 import { useState, useEffect, useCallback } from 'react'
 import Toast from '../Toast'
 import Confetti from '../Confetti'

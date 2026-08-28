@@ -1,3 +1,20 @@
+/**
+ * @file GreatWallBoard.jsx
+ * @description Brick breaker game component using HTML5 Canvas.
+ * Players control a paddle to bounce a ball and break bricks.
+ * Includes score tracking, lives system, and win/lose conditions.
+ * 
+ * @component
+ * @returns {JSX.Element} Brick breaker game with canvas
+ * 
+ * @state {string} gameState - Game state ('ready', 'playing', 'won', 'lost')
+ * @state {number} score - Current score (10 points per brick)
+ * @state {number} lives - Remaining lives (starts at 3)
+ * @ref {HTMLCanvasElement} canvasRef - Reference to game canvas
+ * @ref {Object} stateRef - Game state object with paddle, ball, bricks, canvas dimensions
+ * @ref {number} gameLoopRef - Animation frame ID for game loop
+ */
+
 import { useState, useEffect, useRef, useCallback } from 'react'
 
 const PADDLE_WIDTH = 100

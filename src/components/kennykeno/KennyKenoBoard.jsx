@@ -1,3 +1,20 @@
+/**
+ * @file KennyKenoBoard.jsx
+ * @description Keno lottery game component.
+ * Players select 1-10 numbers from 1-80, then 20 numbers are drawn.
+ * Displays match count and feedback based on accuracy.
+ * 
+ * @component
+ * @returns {JSX.Element} Keno game board
+ * 
+ * @state {Array<number>} selectedNumbers - Numbers selected by player (max 10)
+ * @state {Array<number>} drawnNumbers - Numbers drawn in the game (20 total)
+ * @state {boolean} gameStarted - Whether the game has started
+ * @state {boolean} gameOver - Whether the game is over
+ * @state {number} matches - Number of matches between selected and drawn
+ * @state {string} message - Feedback message based on performance
+ */
+
 import { useState } from 'react'
 import './kennykeno.css'
 
