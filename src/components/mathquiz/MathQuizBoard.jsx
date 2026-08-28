@@ -1,3 +1,25 @@
+/**
+ * @file MathQuizBoard.jsx
+ * @description Rapid-fire math quiz game with 10 questions and 15-second time limit per question.
+ * Features difficulty tiers (Easy/Medium/Hard), countdown timer, and results summary.
+ * 
+ * @component
+ * @param {Object} props - Component props
+ * @param {Function} props.onNewGame - Callback to start a new quiz
+ * @returns {React.ReactElement} Math quiz interface with timer, problem, and input
+ * 
+ * @state {Array} problems - Array of 10 math problems with questions and answers
+ * @state {number} qIndex - Current question index (0-9)
+ * @state {number} timeLeft - Seconds remaining for current question
+ * @state {string} input - Current user input for answer
+ * @state {boolean} answered - Whether current question has been answered
+ * @state {boolean|null} isCorrect - Whether last answer was correct (null if not answered)
+ * @state {number} score - Number of correct answers
+ * @state {Array} userAnswers - Array of user answers for all questions
+ * @state {boolean} shaking - Whether to show shake animation
+ * @state {string|null} toast - Toast message or null
+ */
+
 import { useState, useEffect, useRef, useCallback } from "react";
 import { clsx } from "clsx";
 import Toast from "../Toast";

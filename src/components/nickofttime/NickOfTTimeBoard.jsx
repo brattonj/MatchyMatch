@@ -1,3 +1,22 @@
+/**
+ * @file NickOfTTimeBoard.jsx
+ * @description Nick of T-Time - A timing precision game where players tap a moving marker into a target zone.
+ * Features 5 rounds with increasing difficulty and scoring based on accuracy.
+ * 
+ * @component
+ * @param {Object} props - Component props
+ * @param {Function} props.onNewGame - Callback to start a new game
+ * @returns {React.ReactElement} Timing game with animated bar and tap button
+ * 
+ * @state {string} phase - Current game phase ('playing', 'result', or 'gameover')
+ * @state {number} round - Current round (0-4)
+ * @state {number} progress - Current marker position (0-1)
+ * @state {string|null} hit - Last hit result ('perfect', 'great', 'good', 'miss', or null)
+ * @state {number} roundPoints - Points earned in current round
+ * @state {number} totalScore - Total score across all rounds
+ * @state {Array<number>} results - Array of points for each round
+ */
+
 import { useState, useEffect, useRef, useCallback } from 'react'
 
 // ── Constants ─────────────────────────────────────────────────────

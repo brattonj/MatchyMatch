@@ -1,3 +1,23 @@
+/**
+ * @file GregsEggBoard.jsx
+ * @description Greg's Egg - A reflex game where players tap eggs before they hatch into chicks.
+ * Features a 3×3 grid of eggs that pop randomly and accelerate as the game progresses.
+ * Players race against 30 seconds to tap as many eggs as possible.
+ * 
+ * @component
+ * @param {Object} props - Component props
+ * @param {Function} props.onNewGame - Callback to start a new game
+ * @returns {React.ReactElement} Egg tapping game with grid and score display
+ * 
+ * @state {string} phase - Current game phase ('menu', 'playing', or 'gameover')
+ * @state {number} score - Total points accumulated
+ * @state {number} hits - Number of eggs successfully tapped
+ * @state {number} misses - Number of eggs that hatched
+ * @state {number} timeLeft - Seconds remaining
+ * @state {Array} cells - Array of 9 egg cells with state and id
+ * @state {Array} scorePopups - Array of floating score popups
+ */
+
 import { useState, useEffect, useCallback, useRef } from 'react'
 
 // ── Constants ─────────────────────────────────────────────────────

@@ -1,3 +1,24 @@
+/**
+ * @file SpellingBeeBoard.jsx
+ * @description Spelling Bee word puzzle game with honeycomb letter layout.
+ * Players form words using 7 letters (1 required center letter + 6 outer letters).
+ * Features scoring, rank progression, and pangram bonuses.
+ * 
+ * @component
+ * @param {Object} props - Component props
+ * @param {Function} props.onNewGame - Callback to start a new puzzle
+ * @returns {React.ReactElement} Spelling Bee game with honeycomb, input, and word list
+ * 
+ * @state {Object} puzzle - Current puzzle with center, outer letters, and valid words
+ * @state {string} center - Required center letter
+ * @state {Array<string>} outer - Six outer letters
+ * @state {string} input - Current word being typed
+ * @state {Set<string>} found - Set of found valid words
+ * @state {number} score - Current score
+ * @state {boolean} shake - Whether to show shake animation
+ * @state {string|null} toast - Toast message or null
+ */
+
 import { useState, useEffect, useCallback } from "react";
 import {
   pickPuzzle,

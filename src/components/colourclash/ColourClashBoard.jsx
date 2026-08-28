@@ -1,3 +1,24 @@
+/**
+ * @file ColourClashBoard.jsx
+ * @description Colour Clash - A Stroop effect game where players tap the ink colour, not the word.
+ * Players race against 30 seconds to tap the correct colour buttons while rounds accelerate.
+ * Features streak tracking, accuracy calculation, and difficulty progression.
+ * 
+ * @component
+ * @param {Object} props - Component props
+ * @param {Function} props.onNewGame - Callback to start a new game
+ * @returns {React.ReactElement} Colour Clash game with colour display and button grid
+ * 
+ * @state {string} phase - Current game phase ('menu', 'playing', or 'gameover')
+ * @state {number} score - Total points accumulated
+ * @state {number} correct - Current correct streak
+ * @state {number} wrong - Number of wrong answers
+ * @state {number} timeLeft - Seconds remaining
+ * @state {Object|null} round - Current round with wordColor and inkColor
+ * @state {string|null} feedback - Feedback state ('correct', 'wrong', or null)
+ * @state {Array} scorePopups - Array of floating score popups
+ */
+
 import { useState, useEffect, useCallback, useRef } from 'react'
 
 // ── Constants ─────────────────────────────────────────────────────
