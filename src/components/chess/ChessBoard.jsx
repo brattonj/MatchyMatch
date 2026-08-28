@@ -1,3 +1,17 @@
+/**
+ * @file ChessBoard.jsx
+ * @description Main chess game board component.
+ * Integrates board display, game status, controls, captured pieces, and move history.
+ * Handles square selection, move validation, and game state management.
+ * Shows confetti on checkmate and toast messages for game events.
+ * 
+ * @component
+ * @returns {JSX.Element} Complete chess game interface
+ * 
+ * @state {string} message - Toast message to display
+ * @state {boolean} showConfetti - Whether to show confetti animation
+ */
+
 import { useState, useEffect } from 'react'
 import Board from './Board'
 import GameStatus from './GameStatus'
