@@ -7,6 +7,7 @@ import { render, cleanup } from '@testing-library/react';
 import GameBoard from '../components/GameBoard';
 import WordleBoard from '../components/wordle/WordleBoard';
 import NumberCrunchBoard from '../components/numbercrunch/NumberCrunchBoard';
+import NumberGuessBoard from '../components/numberguess/NumberGuessBoard';
 import CrosswordBoard from '../components/crossword/CrosswordBoard';
 import WordChainBoard from '../components/wordchain/WordChainBoard';
 import ScrambleBoard from '../components/scramble/ScrambleBoard';
@@ -50,6 +51,7 @@ const BOARDS = [
   ['matchy', () => <GameBoard puzzle={puzzles[0]} onNewGame={() => {}} />],
   ['wordle', () => <WordleBoard />],
   ['crunch', () => <NumberCrunchBoard />],
+  ['numberguess', () => <NumberGuessBoard />],
   ['cross', () => <CrosswordBoard />],
   ['chain', () => <WordChainBoard />],
   ['scramble', () => <ScrambleBoard />],

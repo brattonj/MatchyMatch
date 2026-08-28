@@ -20,6 +20,12 @@ const GAMES = [
     tag: 'Puzzle',
   },
   {
+    id: 'numberguess',
+    name: 'Number Guess',
+    description: 'Guess the secret number between 1 and 100',
+    tag: 'Puzzle',
+  },
+  {
     id: 'cross',
     name: 'Crossword',
     description: 'Fill in the classic crossword grid',

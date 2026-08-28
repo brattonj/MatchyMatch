@@ -41,6 +41,7 @@ import LatchamBoard from './components/latcham/LatchamBoard'
 import GeoffsGeometryBoard from './components/geoffsgeometry/GeoffsGeometryBoard'
 import GreatWallBoard from './components/greatwall/GreatWallBoard'
 import SamIAmBoard from './components/samiam/SamIAmBoard'
+import NumberGuessBoard from './components/numberguess/NumberGuessBoard'
 import { puzzles } from './data/puzzles'
 
 const envIndex = parseInt(import.meta.env.VITE_PUZZLE_INDEX, 10)
@@ -90,6 +91,8 @@ function App() {
           <WordleBoard key={`wordle-${gameKey}`} />
         ) : activeGame === 'crunch' ? (
           <NumberCrunchBoard key={`crunch-${gameKey}`} />
+        ) : activeGame === 'numberguess' ? (
+          <NumberGuessBoard key={`numberguess-${gameKey}`} />
         ) : activeGame === 'cross' ? (
           <CrosswordBoard key={`cross-${gameKey}`} />
         ) : activeGame === 'chain' ? (
