@@ -56,7 +56,7 @@ function placeHotDog(grid, row, col, length, isHorizontal) {
 }
 
 function generateRandomPlacement() {
-  const grid = createEmptyGrid()
+  let grid = createEmptyGrid()
   const placements = []
 
   for (const dogType of HOT_DOG_TYPES) {
@@ -68,7 +68,7 @@ function generateRandomPlacement() {
       const isHorizontal = Math.random() > 0.5
 
       if (canPlaceHotDog(grid, row, col, dogType.length, isHorizontal)) {
-        placeHotDog(grid, row, col, dogType.length, isHorizontal)
+        grid = placeHotDog(grid, row, col, dogType.length, isHorizontal)
         placements.push({ row, col, length: dogType.length, isHorizontal, type: dogType.name })
         placed = true
       }
@@ -297,8 +297,8 @@ function SetupPhase({ onSetupComplete }) {
               onClick={() => handleCellClick(rowIdx, colIdx)}
               disabled={currentDogIndex >= HOT_DOG_TYPES.length}
               isPlayerGrid={true}
-              onMouseEnter={() => handleCellHover(rowIdx, colIdx)}
-              onMouseLeave={() => setHoveredCells([])}
+
+
             />
           ))
         )}
