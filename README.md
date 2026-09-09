@@ -23,4 +23,4 @@ Because it kept finding someone **else** a perfect match! 🃏
 
 ## 💭 A Little Inspiration
 
-> "Well, how often do we get to see our dreams come true?" — David Byrne
+> "I have a love for things that are strange and unusual." — David Lynch
