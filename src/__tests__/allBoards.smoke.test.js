@@ -43,6 +43,7 @@ import LatchamBoard from '../components/latcham/LatchamBoard';
 import GeoffsGeometryBoard from '../components/geoffsgeometry/GeoffsGeometryBoard';
 import GreatWallBoard from '../components/greatwall/GreatWallBoard';
 import SamIAmBoard from '../components/samiam/SamIAmBoard';
+import HotDogBattleshipBoard from '../components/hotdogbattleship/HotDogBattleshipBoard';
 import { puzzles } from '../data/puzzles';
 
 // Boards reachable from App.jsx's game switch, keyed by the same id used in
@@ -87,6 +88,7 @@ const BOARDS = [
   ['geoffsgeometry', () => <GeoffsGeometryBoard />],
   ['greatwall', () => <GreatWallBoard />],
   ['samiam', () => <SamIAmBoard />],
+  ['hotdogbattleship', () => <HotDogBattleshipBoard />],
 ];
 
 describe('game board smoke tests', () => {

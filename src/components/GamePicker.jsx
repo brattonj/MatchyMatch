@@ -249,6 +249,13 @@ const GAMES = [
     tag: 'Word',
     isNew: true,
   },
+  {
+    id: 'hotdogbattleship',
+    name: 'Hot Dog Battleship',
+    description: 'Place hot dogs and shoot flies to sink your opponent!',
+    tag: 'Strategy',
+    isNew: true,
+  },
 ]
 
 // Two-color gradients cycled across the grid, adapted from the Arcade

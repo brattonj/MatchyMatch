@@ -42,6 +42,7 @@ import GeoffsGeometryBoard from './components/geoffsgeometry/GeoffsGeometryBoard
 import GreatWallBoard from './components/greatwall/GreatWallBoard'
 import SamIAmBoard from './components/samiam/SamIAmBoard'
 import NumberGuessBoard from './components/numberguess/NumberGuessBoard'
+import HotDogBattleshipBoard from './components/hotdogbattleship/HotDogBattleshipBoard'
 import { puzzles } from './data/puzzles'
 
 const envIndex = parseInt(import.meta.env.VITE_PUZZLE_INDEX, 10)
@@ -161,6 +162,8 @@ function App() {
           <GreatWallBoard key={`greatwall-${gameKey}`} />
         ) : activeGame === 'samiam' ? (
           <SamIAmBoard key={`samiam-${gameKey}`} />
+        ) : activeGame === 'hotdogbattleship' ? (
+          <HotDogBattleshipBoard key={`hotdogbattleship-${gameKey}`} />
         ) : (
           <SudokuBoard key={`sudoku-${gameKey}`} />
         )}
