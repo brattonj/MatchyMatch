@@ -20,3 +20,37 @@ If you are developing a production application, we recommend using TypeScript wi
 Why did the matching game break up with the memory game?
 
 Because it kept finding someone **else** a perfect match! 🃏
+
+## 🎵 The Goofy Games Song
+
+*To the tune of absolutely nothing in particular:*
+
+```
+🎶 Oh, I've got games, games, games, all day long!
+   Matching tiles and chess moves, can't go wrong!
+   Wordle words and Sudoku grids so fine,
+   Memory cards in a perfect line!
+
+   Flip a coin, roll the dice, spin around,
+   Minesweeper clicking with a clicking sound!
+   Hangman letters, Anagrams too,
+   2048 tiles in a jumbled stew!
+
+   CHORUS:
+   Games, games, games, they're so goofy and grand!
+   Confetti falling, victory at hand!
+   From Tic-Tac-Toe to the Great Wall of fame,
+   We're all just here to play the game! 🎮
+
+   Snake is slithering, Trivia's tough,
+   Type racing fast when the going gets rough!
+   Word chains linking, Crosswords to solve,
+   Every puzzle makes our brains revolve!
+
+   Barry's Blitz is lightning quick,
+   Colour Clash will do the trick!
+   Pinball bouncing, Scramble the letters,
+   Playing games just makes us feel better! 🎉
+```
+
+*No musical talent required to enjoy this masterpiece.* 🎸🎺🎹
