@@ -14,6 +14,10 @@ jobs:
       # Step 1: Always check out your repository code so the runner can see it
       - name: Check out repo code
         uses: actions/checkout@v4
+        
+      - name: Sleep for 75 seconds
+        run: sleep 75s
+        shell: bash
 
       # Step 2: Run a basic terminal command
       - name: Greet the user
