@@ -1,0 +1,20 @@
+name: simple workflow
+
+# 1. Choose what triggers the action (e.g., whenever you push code)
+on: [push]
+
+# 2. Define the work that needs to be done
+jobs:
+  say-hello:
+    # Use a clean, GitHub-hosted Linux virtual machine
+    runs-on: ubuntu-latest
+
+    # The actual steps your machine will run
+    steps:
+      # Step 1: Always check out your repository code so the runner can see it
+      - name: Check out repo code
+        uses: actions/checkout@v4
+
+      # Step 2: Run a basic terminal command
+      - name: Greet the user
+        run: echo "Hello, World! GitHub Actions is working perfectly."
