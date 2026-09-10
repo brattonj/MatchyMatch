@@ -21,6 +21,12 @@ Why did the matching game break up with the memory game?
 
 Because it kept finding someone **else** a perfect match! 🃏
 
+## 👨‍💼 Dad Joke Corner
+
+Why don't scientists trust atoms?
+
+Because they make up everything! 😄
+
 ## 💫 Dolly Parton Wisdom
 
 > "If you want the rainbow, you gotta put up with the rain." - Dolly Parton
