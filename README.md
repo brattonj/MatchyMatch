@@ -44,3 +44,4 @@ When his human came to collect him for dinner, they gasped in amazement. "Biscui
 ## Forge runtime audit 20260910
 
 This temporary documentation marker verifies the Forge Code flow.
+Follow-up verified with a pinned model.
