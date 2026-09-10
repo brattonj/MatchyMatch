@@ -27,6 +27,12 @@ Why do penguins build their nests at the bottom of trees?
 
 Because they can't climb! 🐧
 
+### 🦆 Duck Joke
+
+What do you call a duck that steals?
+
+A robber ducky! 🦆
+
 ## 💫 Dolly Parton Wisdom
 
 > "If you want the rainbow, you gotta put up with the rain." - Dolly Parton
