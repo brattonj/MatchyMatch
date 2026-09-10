@@ -1,7 +1,7 @@
 name: simple workflow
 
 # 1. Choose what triggers the action (e.g., whenever you push code)
-on: [push]
+on: [push, pull_request]
 
 # 2. Define the work that needs to be done
 jobs:
