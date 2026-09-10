@@ -243,6 +243,13 @@ const GAMES = [
     tag: 'Word',
     isNew: true,
   },
+  {
+    id: 'synapse',
+    name: 'Synapse',
+    description: 'Memorize and recreate increasingly complex light patterns',
+    tag: 'Puzzle',
+    isNew: true,
+  },
 ]
 
 // Two-color gradients cycled across the grid, adapted from the Arcade
