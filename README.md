@@ -27,6 +27,10 @@ Why don't scientists trust atoms?
 
 Because they make up everything! 😄
 
+What do you call a fish wearing a bowtie?
+
+Sofishticated! 🐟
+
 ## 💫 Dolly Parton Wisdom
 
 > "If you want the rainbow, you gotta put up with the rain." - Dolly Parton
