@@ -21,6 +21,12 @@ Why did the matching game break up with the memory game?
 
 Because it kept finding someone **else** a perfect match! 🃏
 
+### 🐧 Penguin Joke
+
+Why do penguins build their nests at the bottom of trees?
+
+Because they can't climb! 🐧
+
 ## 💫 Dolly Parton Wisdom
 
 > "If you want the rainbow, you gotta put up with the rain." - Dolly Parton
